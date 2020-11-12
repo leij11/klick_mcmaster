@@ -1,0 +1,33 @@
+.conversation-list {
+  display: flex;
+  flex-direction: column;
+}
+
+#photo {
+  padding: 10px;
+  width: 100px;
+  display: inline;
+}
+
+.profile-cointainer {
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.buttons {
+  float: right;
+  display: inline;
+  margin-top: 45px;
+  width: 130px;
+}
+
+.menu-buttons {
+  display: inline;
+  margin-left: 20px;
+}
+
+.upper-box {
+  background-color: white;
+  position: sticky;
+  top:  0;
+}

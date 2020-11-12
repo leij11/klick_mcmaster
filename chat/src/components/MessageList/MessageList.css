@@ -1,0 +1,59 @@
+.message-list-container {
+  padding: 10px;
+  height: 100%;
+}
+
+.message-list {
+  height: 100%;
+}
+
+#Title {
+  margin:  0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  background-color: #8000008f;
+  font-weight: 500;
+  border-bottom: 1px solid #eeeef1;
+
+  position: sticky;
+  top: 0px;
+}
+
+#smallpp {
+  margin-left: 10px;
+  margin-right: 50px;
+  max-width: 80px;
+}
+
+.list-names {
+  background-color: lightgray;
+  margin: 0;
+  margin-right: 3px;
+  display: inline;
+}
+
+#Title h1 {
+  margin: 0px;
+}
+
+.dropdown-box {
+  background-color: white;
+  border: 1px solid rgb(187, 187, 187);
+  font-size: 15px;
+  font-weight: normal;
+  position:fixed;
+  top:0;
+  right:70px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.dropdown-item {
+  padding: 5px 5px;
+  border: 1px solid rgb(187, 187, 187);
+}
+
+.dropdown-item:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}

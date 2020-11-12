@@ -1,0 +1,35 @@
+.compose {
+  padding: 10px;
+  align-items: center;
+  background: white;
+  border-top: 1px solid lightgrey;
+  width: auto;
+  position: sticky;
+  bottom: 0px;
+}
+
+
+.tool-container {
+  display: block;
+}
+
+.compose-input {
+  border: 1px solid lightgrey;
+  font-size: 14px;
+  height: 40px;
+  width: 100%;
+  background: none;
+}
+
+.compose-input::placeholder {
+  opacity: 0.3;
+}
+
+.compose .toolbar-button {
+  color: #bbbbbf;
+  margin-left: 15px;
+}
+
+.compose .toolbar-button:hover {
+  color: #99999c;
+}
