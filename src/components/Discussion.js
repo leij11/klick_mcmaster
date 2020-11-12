@@ -7,8 +7,10 @@ import PostList from "./actions/PostList";
 import Form from "./actions/Form";
 import Header from "./actions/Header";
 import Forum from "./actions/Forum";
-
+import { Modal, Button } from "semantic-ui-react";
 function Discussion(props) {
+  const [open, setOpen] = React.useState(false);
+
   const getCurrentDate = () => {
     const now = new Date();
     return now.toISOString().slice(0, 10);
@@ -128,6 +130,12 @@ function Discussion(props) {
     <React.Fragment>
       <CssBaseline />
       <Container>
+        <Modal
+          onClose={() => setOpen(false)}
+          onOpen={() => setOpen(true)}
+          open={open}
+          trigger={<Button>Create New Post</Button>}
+        ></Modal>
         <Header handleFabClick={handleDiaOpen} />
         <Forum posts={posts} />
         <PostList

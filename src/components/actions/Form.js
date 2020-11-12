@@ -8,6 +8,7 @@ import {
   Button,
 } from "@material-ui/core";
 import FormValid from "./FormValid";
+import { Modal } from "semantic-ui-react";
 
 const Form = (props) => {
   return (

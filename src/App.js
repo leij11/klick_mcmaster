@@ -9,7 +9,7 @@ function App() {
     <React.Fragment>
       <Router>
         <Switch>
-          <Route path={"/Discussion"} component={Discussion} />
+          <Route path={"/Discussion/:id"} component={Discussion} />
           <Route path={"/Profile"} component={Profile} />
           <Route path={"/Analytics"} component={Analytics} />
         </Switch>
