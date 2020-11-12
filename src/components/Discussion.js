@@ -6,17 +6,47 @@ import { CssBaseline, Container } from "@material-ui/core";
 import PostList from "./actions/PostList";
 import Form from "./actions/Form";
 import Header from "./actions/Header";
+import Forum from "./actions/Forum";
 
 function Discussion(props) {
-  const [posts, setposts] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isEdit, setIsEdit] = useState(false);
-  const [edit, setEdit] = useState({});
-
   const getCurrentDate = () => {
     const now = new Date();
     return now.toISOString().slice(0, 10);
   };
+
+  const [posts, setposts] = useState([
+    {
+      title: "Cs4hc3 help",
+      author: "Jessica",
+      description: "test",
+      date: getCurrentDate(),
+      topic: "Study",
+    },
+    {
+      title: "Google Interview",
+      author: "Jenny",
+      description: "Having interview next week",
+      date: getCurrentDate(),
+      topic: "Work",
+    },
+    {
+      title: "Compsci 3MI3 A2 Question",
+      author: "Suri",
+      description: "Cannot solve",
+      date: getCurrentDate(),
+      topic: "Study",
+    },
+    {
+      title: "Ski 2020",
+      author: "Jackson",
+      description: "Anyone going to ski together on Dec 24, 2020?",
+      date: getCurrentDate(),
+      topic: "Social",
+    },
+  ]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [edit, setEdit] = useState({});
 
   useEffect(() => {
     if (isEdit) {
@@ -99,6 +129,7 @@ function Discussion(props) {
       <CssBaseline />
       <Container>
         <Header handleFabClick={handleDiaOpen} />
+        <Forum posts={posts} />
         <PostList
           posts={posts}
           handleDelete={handleDelete}
