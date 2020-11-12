@@ -1,0 +1,34 @@
+[
+  {
+    "user":"Sample User",
+    "time":2020-01-01,
+    "content":"some sample content",
+    "likes":0,
+    "comments":["Hamilton, Ontario"],
+    "photo":"./profile01.jpg"
+  },
+  {
+    "user":"Sample User",
+    "time":2020-01-01,
+    "content":"some sample content",
+    "likes":0,
+    "comments":["Hamilton, Ontario"],
+    "photo":"./profile01.jpg"
+  },
+  {
+    "user":"Sample User",
+    "time":2020-01-01,
+    "content":"some sample content",
+    "likes":0,
+    "comments":["Hamilton, Ontario"],
+    "photo":"./profile01.jpg"
+  },
+  {
+    "user":"Sample User",
+    "time":2020-01-01,
+    "content":"some sample content",
+    "likes":10,
+    "comments":["Hamilton, Ontario"],
+    "photo":"./profile01.jpg"
+  }
+]
