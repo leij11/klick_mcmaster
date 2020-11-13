@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Header from './Header'
 import Profile from './Profile';
+import Explore from './Explore';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Profile />
+    <Header />
+    <Explore />
   </React.StrictMode>,
   document.getElementById('root')
 );
