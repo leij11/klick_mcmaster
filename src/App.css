@@ -1,5 +1,12 @@
 .style {
   background-color: #800000;
-  height: 100vh;
+  height: 220vh;
   display: block;
+}
+
+.chart-style {
+  background-color: #ffffff;
+  height: 180vh;
+  display: block;
+  margin-top: 5rem;
 }

@@ -1,6 +1,8 @@
 import React from "react";
-import { Doughnut, Bar } from "react-chartjs-2";
+import { Doughnut, Bar, Line } from "react-chartjs-2";
 import { Grid } from "semantic-ui-react";
+import "../App.css";
+import { Container } from "@material-ui/core";
 const Analytics = () => {
   const width = 55;
   const height = 285;
@@ -74,6 +76,8 @@ const Analytics = () => {
 
   const faculty_temp = [];
   const location_temp = [];
+  const date_temp = [];
+  const interest_temp = [];
   users.forEach((item) => {
     //console.log(faculty_temp);
     //console.log(location_temp);
@@ -84,8 +88,17 @@ const Analytics = () => {
     location_temp[item.location]
       ? (location_temp[item.location] += 1)
       : (location_temp[item.location] = 1);
+
+    date_temp[item.chatdate]
+      ? (date_temp[item.chatdate] += 1)
+      : (date_temp[item.chatdate] = 1);
+
+    interest_temp[item.interest]
+      ? (interest_temp[item.interest] += 1)
+      : (interest_temp[item.interest] = 1);
   });
 
+  //console.log(date_temp);
   const list_faculty = [];
   const count_faculty = [];
   for (var key in faculty_temp) {
@@ -100,8 +113,23 @@ const Analytics = () => {
     list_location.push(item);
     count_location.push(location_temp[item]);
   }
-  console.log(count_location);
-  console.log(list_location);
+
+  const list_date = [];
+  const count_date = [];
+  for (var date in date_temp) {
+    list_date.push(date);
+    count_date.push(date_temp[date]);
+  }
+
+  const list_interest = [];
+  const count_interest = [];
+  for (var interest in interest_temp) {
+    list_interest.push(interest);
+    count_interest.push(interest_temp[interest]);
+  }
+  //console.log(count_date);
+  //console.log(list_date);
+  //console.log(list_faculty);
   const faculty_chart = (
     <Doughnut
       width={width}
@@ -158,6 +186,62 @@ const Analytics = () => {
     />
   );
 
+  const interest_chart = (
+    <Doughnut
+      width={width}
+      height={height}
+      data={{
+        labels: list_interest,
+        datasets: [
+          {
+            data: count_interest,
+            label: "Faculty",
+            borderColor: "Gray",
+            hoverBackgroundColor: "Gray",
+            hoverBorderColor: "Gray",
+            backgroundColor: [
+              "LightSteelBlue",
+              "PeachPuff",
+              "LemonChiffon",
+              "PowderBlue",
+              "LavenderBlush",
+              "Pink",
+              "LightGray",
+              "SandyBrown",
+              "PaleGoldenRod",
+              "LightCoral",
+              "PaleVioletRed",
+            ],
+            fill: true,
+          },
+        ],
+      }}
+      options={{
+        legend: {
+          display: true,
+          position: "bottom",
+        },
+        title: {
+          display: true,
+          text: `Number of Chat by Interest`,
+          fontSize: 20,
+          fontFamily: "Mono",
+          fontColor: "#2F4F4F",
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+          padding: {
+            top: 34,
+            left: 15,
+            right: 15,
+            bottom: 15,
+          },
+        },
+      }}
+    />
+  );
+
   const location_chart = (
     <Bar
       width={width}
@@ -167,7 +251,7 @@ const Analytics = () => {
         datasets: [
           {
             data: count_location,
-            label: list_faculty,
+            label: "Location by City",
             borderColor: "Gray",
             hoverBackgroundColor: "Gray",
             hoverBorderColor: "Gray",
@@ -210,22 +294,117 @@ const Analytics = () => {
             bottom: 15,
           },
         },
+        scales: {
+          xAxes: [
+            {
+              ticks: { display: false },
+              gridLines: {
+                display: false,
+                drawBorder: false,
+              },
+            },
+          ],
+          yAxes: [
+            {
+              ticks: { display: true, min: 0, stepSize: 1 },
+              gridLines: {
+                display: true,
+                drawBorder: false,
+              },
+            },
+          ],
+        },
       }}
     />
   );
 
+  const date_chart = (
+    <Line
+      width={width}
+      height={height}
+      data={{
+        labels: list_date,
+        datasets: [
+          {
+            data: count_date,
+            label: "Chat by Date",
+            borderColor: "Dark Gray",
+            hoverBackgroundColor: "Gray",
+            hoverBorderColor: "Gray",
+            backgroundColor: ["LightGray"],
+            fill: true,
+          },
+        ],
+      }}
+      options={{
+        legend: {
+          display: true,
+          position: "bottom",
+        },
+        title: {
+          display: true,
+          text: `Number of Chat by Date`,
+          fontSize: 20,
+          fontFamily: "Mono",
+          fontColor: "#2F4F4F",
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+          padding: {
+            top: 34,
+            left: 15,
+            right: 15,
+            bottom: 15,
+          },
+        },
+        scales: {
+          xAxes: [
+            {
+              ticks: { display: false },
+              gridLines: {
+                display: false,
+                drawBorder: false,
+              },
+            },
+          ],
+          yAxes: [
+            {
+              ticks: { display: true, min: 0, stepSize: 1 },
+              gridLines: {
+                display: true,
+                drawBorder: false,
+              },
+            },
+          ],
+        },
+      }}
+    />
+  );
   return (
     <React.Fragment>
-      <Grid>
-        <Grid.Row centered columns={2}>
-          <Grid.Column mobile={16} tablet={8} computer={5}>
-            {faculty_chart}
-          </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={5}>
-            {location_chart}
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <div className="style">
+        <Grid>
+          <Container className="chart-style">
+            <Grid.Row centered columns={2}>
+              <Grid.Column mobile={16} tablet={8} computer={5}>
+                {faculty_chart}
+              </Grid.Column>
+              <Grid.Column mobile={16} tablet={8} computer={5}>
+                {location_chart}
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row centered columns={2}>
+              <Grid.Column mobile={16} tablet={8} computer={5}>
+                {date_chart}
+              </Grid.Column>
+              <Grid.Column mobile={16} tablet={8} computer={5}>
+                {interest_chart}
+              </Grid.Column>
+            </Grid.Row>
+          </Container>
+        </Grid>
+      </div>
     </React.Fragment>
   );
 };
