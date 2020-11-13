@@ -6,70 +6,89 @@ import {
   InputLabel,
   MenuItem,
   Grid,
+  makeStyles,
 } from "@material-ui/core";
+import { Form } from "semantic-ui-react";
+
+const useStyles = makeStyles((theme) => ({
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    margin: "auto",
+    width: "fit-content",
+  },
+  formControl: {
+    marginTop: theme.spacing(2),
+    minWidth: 160,
+  },
+  formControlLabel: {
+    marginTop: theme.spacing(1),
+  },
+}));
 
 const FormValid = ({ formik }) => {
+  const classes = useStyles();
+  const options = [
+    { key: "s", text: "Study", value: "study", name: "study" },
+    { key: "w", text: "Work", value: "work" },
+    { key: "o", text: "Social", value: "Social" },
+  ];
   return (
-    <Grid>
-      <Grid item>
-        <TextField
-          variant="outlined"
+    <Form>
+      <Form.Group widths="equal">
+        <Form.Input
+          fluid
           label="Title"
-          name="title"
+          placeholder="Title"
           onChange={formik.handleChange}
           value={formik.values.title}
+          name="title"
         />
-      </Grid>
-      <Grid item>
-        <FormControl style={{ width: "100%", marginTop: "1rem" }}>
-          <InputLabel style={{ marginLeft: "1rem" }}>Topic</InputLabel>
-          <Select
-            labelId="topic-label"
-            label="topic"
-            name="topic"
-            onChange={formik.handleChange}
-            value={formik.values.topic}
-            variant="outlined"
-            style={{ width: "100%" }}
-          >
-            <MenuItem value="Study">Study</MenuItem>
-            <MenuItem value="Work">Life</MenuItem>
-            <MenuItem value="Life">Work</MenuItem>
-          </Select>
-        </FormControl>
-      </Grid>
-      <Grid>
-        <TextField
-          label="Create Date"
-          type="date"
-          defaultValue="2020-11-15"
-          variant="outlined"
-          style={{ widith: "100%", marginTop: "2rem" }}
-          InputLabelProps={{ shrink: true }}
-          onChange={formik.handleChange}
-          name="date"
-          value={formik.values.date}
-        />
-      </Grid>
-      <Grid item>
-        <TextField
-          variant="outlined"
+        <Form.Input
+          fluid
           label="Author"
-          name="author"
+          placeholder="Author"
           onChange={formik.handleChange}
           value={formik.values.author}
+          name="author"
         />
-      </Grid>
-      <Grid item>
-        <TextField
-          variant="outlined"
-          label="Description"
-          name="description"
+      </Form.Group>
+      <Form.Input
+        fluid
+        label="Create Date"
+        placeholder="2020-11-12"
+        onChange={formik.handleChange}
+        value={formik.values.date}
+        name="date"
+      />
+
+      <FormControl
+        style={{ width: "100%", marginTop: "0.5rem", marginBottom: "1rem" }}
+      >
+        <InputLabel style={{ marginLeft: "1rem" }}>Topic</InputLabel>
+        <Select
+          labelId="topic-label"
+          label="topic"
+          name="topic"
           onChange={formik.handleChange}
-          value={formik.values.description}
-        />
-      </Grid>
-    </Grid>
+          value={formik.values.topic}
+          variant="outlined"
+          style={{ width: "100%" }}
+        >
+          <MenuItem value="Study">Study</MenuItem>
+          <MenuItem value="Work">Work</MenuItem>
+          <MenuItem value="Social">Social</MenuItem>
+        </Select>
+      </FormControl>
+
+      <Form.TextArea
+        label="Description"
+        placeholder="Description"
+        onChange={formik.handleChange}
+        value={formik.values.description}
+        name="description"
+      />
+    </Form>
   );
 };
 

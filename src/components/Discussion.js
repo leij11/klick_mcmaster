@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import { v4 as uuidv4 } from "uuid";
-import { CssBaseline, Container } from "@material-ui/core";
+import { CssBaseline, Container, Grid } from "@material-ui/core";
 
 import PostList from "./actions/PostList";
 import Form from "./actions/Form";
 import Header from "./actions/Header";
-import Forum from "./actions/Forum";
-import { Modal, Button } from "semantic-ui-react";
-function Discussion(props) {
-  const [open, setOpen] = React.useState(false);
+import "../App.css";
 
+function Discussion(props) {
   const getCurrentDate = () => {
     const now = new Date();
     return now.toISOString().slice(0, 10);
@@ -18,32 +16,52 @@ function Discussion(props) {
 
   const [posts, setposts] = useState([
     {
+      id: uuidv4(),
       title: "Cs4hc3 help",
       author: "Jessica",
-      description: "test",
-      date: getCurrentDate(),
+      description: "Keep having bug in A3.",
+      date: "2020-11-11",
       topic: "Study",
     },
     {
+      id: uuidv4(),
       title: "Google Interview",
       author: "Jenny",
       description: "Having interview next week",
-      date: getCurrentDate(),
+      date: "2020-11-10",
       topic: "Work",
     },
     {
-      title: "Compsci 3MI3 A2 Question",
+      id: uuidv4(),
+      title: "Compsci 3MI3 Question",
       author: "Suri",
-      description: "Cannot solve",
-      date: getCurrentDate(),
+      description: "Cannot solve Compsci 3MI3 Assignment 2. Need help!",
+      date: "2020-11-12",
       topic: "Study",
     },
     {
+      id: uuidv4(),
       title: "Ski 2020",
       author: "Jackson",
       description: "Anyone going to ski together on Dec 24, 2020?",
-      date: getCurrentDate(),
+      date: "2020-11-11",
       topic: "Social",
+    },
+    {
+      id: uuidv4(),
+      title: "Coffee Break",
+      author: "Simon",
+      description: "Hosting coffee break this week in JHE",
+      date: "2020-11-12",
+      topic: "Social",
+    },
+    {
+      id: uuidv4(),
+      title: "Amazon Onsite Next Week",
+      author: "Emily",
+      description: "What to prepare for the onsite interview next week",
+      date: "2020-11-10",
+      topic: "Work",
     },
   ]);
   const [isOpen, setIsOpen] = useState(false);
@@ -129,28 +147,23 @@ function Discussion(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container>
-        <Modal
-          onClose={() => setOpen(false)}
-          onOpen={() => setOpen(true)}
-          open={open}
-          trigger={<Button>Create New Post</Button>}
-        ></Modal>
-        <Header handleFabClick={handleDiaOpen} />
-        <Forum posts={posts} />
-        <PostList
-          posts={posts}
-          handleDelete={handleDelete}
-          handleEditClick={handleEditClick}
+      <Grid className="style">
+        <Container className="chart-style">
+          <Header handleFabClick={handleDiaOpen} />
+          <PostList
+            posts={posts}
+            handleDelete={handleDelete}
+            handleEditClick={handleEditClick}
+          />
+        </Container>
+        <Form
+          open={isOpen}
+          handleClose={handleDiaClose}
+          handleSubmit={handleSubmit}
+          formik={formik}
+          isEdit={isEdit}
         />
-      </Container>
-      <Form
-        open={isOpen}
-        handleClose={handleDiaClose}
-        handleSubmit={handleSubmit}
-        formik={formik}
-        isEdit={isEdit}
-      />
+      </Grid>
     </React.Fragment>
   );
 }
