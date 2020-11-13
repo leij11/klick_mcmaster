@@ -4,6 +4,7 @@ import chat from './images/chat.png';
 import edit from './images/edit.png';
 import like from './images/like.png';
 import liked from './images/liked.png';
+import likedb from './images/liked-b.png';
 import user from './user.json';
 import './Explore.css';
 
@@ -130,12 +131,13 @@ class Explore extends React.Component {
     sortedPosts.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
     var popularPost = sortedPosts[0];
     var heart;
+    var heartb;
     var likes = popularPost.likes;
     if(this.state.liked)
     { heart = liked;
       likes = popularPost.likes + 1; }
     else
-    { heart = like; }
+    { heart = like;}
 
     return (
       <div className="container" id="main">
@@ -194,20 +196,24 @@ class Explore extends React.Component {
             </div>)}
         </div>
         <Modal isOpen={this.state.showDetails} id="details">
-          <button onClick={this.handleCloseModal.bind(this)}>Close Modal</button>
+
           <div className="container">
+            <div><button onClick={this.handleCloseModal.bind(this)} className="close">Close</button></div>
             <div className="row">
               <img src={process.env.PUBLIC_URL + allPosts[this.state.currentId].profilePic} className="rounded-circle" alt="profile photo" id="profilePhoto"/>
-              <div className="user">{allPosts[this.state.currentId].user}</div>
-              <div className="time">{allPosts[this.state.currentId].time}</div>
+              <div id="postsDetails">
+                <div id="userDetails">{allPosts[this.state.currentId].user}</div>
+                <div id="timeDetails">{allPosts[this.state.currentId].time}</div>
+              </div>
             </div>
             <div className="row">
-              <div className="row">{allPosts[this.state.currentId].content}</div>
-              <img className="row" src={allPosts[this.state.currentId].photo}/>
+              <div className="row" id="contentDetails">" {allPosts[this.state.currentId].content} "</div>
+              <div id="photoDetails"><img className="row" src={allPosts[this.state.currentId].photo}/></div>
             </div>
-            <div className="row">
-              <img src={process.env.PUBLIC_URL + heart} onClick={()=> this.setState({liked:!this.state.liked})} id="heart"/>
-              <div>{allPosts[this.state.currentId].comments.map(({user,text}) => <div><span>{user} </span><span>{text}</span></div>)}</div>
+            <div>
+              <img src={process.env.PUBLIC_URL + likedb} id="heart"/><span>{allPosts[this.state.currentId].likes}</span>
+              <br/>
+              <div id="commentDetails">{allPosts[this.state.currentId].comments.map(({user,text}) => <div><span id="commentName">{user}: </span><span>{text}</span></div>)}</div>
             </div>
           </div>
         </Modal>

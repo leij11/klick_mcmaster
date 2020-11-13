@@ -108,6 +108,36 @@
   transform: translate(17%,10%);
 }
 
+#postsDetails {
+  margin-left: 15px;
+}
+
+#userDetails {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#timeDetails {
+  font-size: 11px;
+  margin-top: -3px;
+  margin-left: 3px;
+}
+
+#contentDetails {
+  margin-top: -20px;
+  margin-left: 100px;
+}
+
+#photoDetails img{
+  margin-top: 10px;
+  margin-left: -120px;
+  height: 500px;
+}
+
+#commentDetails {
+  margin-left:
+}
+
 .hotUser {
   position: absolute;
   width: 700px;
