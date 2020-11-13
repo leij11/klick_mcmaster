@@ -9,7 +9,21 @@
 
 #hotTopic {
   height: 250px;
-  background-color: #949494;
+  background-color: #464545;
+  position:relative;
+}
+
+#hotPhoto {
+  margin-left: -15px;
+  width: 809px;
+  height: 250px;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+#commentName {
+  font-weight: bold;
+  margin-right: 5px;
 }
 
 #welcome {
@@ -22,12 +36,14 @@
   margin: 9px 1px 0 1px;
   height:115px;
   background-color: #813b3b;
+  background-image: url('./mentor.jpg');
 }
 
 #student {
   margin: 0px 1px 0px 1px;
   height:115px;
   background-color: #7c4f3f;
+  background-image: url('./student.jpg');
 }
 
 #posts{
@@ -50,10 +66,50 @@
   object-fit: cover;
 }
 
+#profilePhoto {
+  width: 60px;
+  height: 60px;
+}
+
+#heart {
+  margin-top: -3px;
+  margin-right: 2px;
+}
+
+.hotUser {
+  position: absolute;
+  width: 700px;
+  top: 25px;
+  left: 28px;
+  color: white;
+}
+
+.hotUserId {
+  margin: 15px 0 0 10px;
+}
+
 .username {
   position: absolute;
-  bottom: 8px;
+  bottom: 28px;
   left: 16px;
+  color: white;
+}
+
+.user {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.time {
+  margin-top: -3px;
+  font-size: 10px;
+  font-style: italic;
+}
+
+.interaction {
+  position: absolute;
+  bottom: 16px;
+  left: 30px;
   color: white;
 }
 
@@ -63,6 +119,22 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 40px;
+  font-size: 25px;
   font-weight: bold;
+}
+
+input[type=text] {
+  margin-left: 10px;
+  background-color: #800000;
+  opacity: 0.5;
+  color: white;
+  border: 0;
+  width:375px;
+}
+
+input[type=text]::placeholder {
+  font-size: 14px;
+  font-style: italic;
+  padding-left: 5px;
+  color: white;
 }
