@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import logo from './logo.png';
-import chat from './chat.png';
-import edit from './edit.png';
-import like from './like.png';
-import liked from './liked.png';
+import logo from './images/logo.png';
+import chat from './images/chat.png';
+import edit from './images/edit.png';
+import like from './images/like.png';
+import liked from './images/liked.png';
 import user from './user.json';
 import './Explore.css';
 

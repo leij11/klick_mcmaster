@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import logo from './logo.png';
-import chat from './chat.png';
-import edit from './edit.png';
+import logo from './images/logo.png';
+import chat from './images/chat.png';
+import edit from './images/edit.png';
 import user from './user.json';
 
 import Header from './Header'
