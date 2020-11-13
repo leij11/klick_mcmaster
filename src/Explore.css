@@ -29,19 +29,51 @@
 #welcome {
   margin: 0 0 0 10px;
   height: 250px;
+  color: white;
   background-color: #c08080;
 }
 
+#info {
+  margin: -5px 0 0 5px;
+  font-size: 9px;
+}
+
+#id {
+  margin: 10px 0 0 5px;
+  font-weight: bold;
+}
+
+#tag {
+  padding: 3px;
+  margin: 2px;
+  font-size: 10px;
+  border-radius: 5px;
+  background-color: #d86411;
+}
+
+#interest {
+  margin: 0px -3px 3px 3px;
+  height: 100%;
+}
+
+#interest span {
+  display: inline-block;
+}
+
 #mentor {
-  margin: 9px 1px 0 1px;
+  padding: 3px 10px 0 5px;
+  margin: 9px 0 0 0px;
   height:115px;
+  width:150px;
   background-color: #813b3b;
   background-image: url('./images/mentor.jpg');
 }
 
 #student {
-  margin: 0px 1px 0px 1px;
+  margin: 0px 0px 0px 0px;
+  padding: 3px 10px 0 5px;
   height:115px;
+  width:150px;
   background-color: #7c4f3f;
   background-image: url('./images/student.jpg');
 }
@@ -49,13 +81,6 @@
 #posts{
   width: 94.5%;
   margin-left: 35px;
-}
-
-#post {
-  background-color: black;
-  height: 300px;
-  margin: 15px;
-  display: block;
 }
 
 #image {
@@ -121,6 +146,13 @@
   color: white;
   font-size: 25px;
   font-weight: bold;
+}
+
+.post {
+  background-color: black;
+  height: 300px;
+  margin: 15px;
+  display: block;
 }
 
 input[type=text] {

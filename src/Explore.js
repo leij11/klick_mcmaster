@@ -22,8 +22,8 @@ class Explore extends React.Component {
       liked:false,
       newComment:{},
       comment:null,
-      newMentor: {name:"Mentor One",year: 4, university: "McMaster University", interest:["COMPSCI","Photography","cGPA 11.2"]},
-      newStudent: {name:"Student One",year: 1, university: "University of Toronto", interest:["CSC108","Midterm Review","Snowboarding","UI Design"]},
+      newMentor: {name:"Mentor One",year: 4, university: "McMaster University", interest:["COMPSCI","Photography","cGPA11.2"]},
+      newStudent: {name:"Student One",year: 1, university: "University of Toronto", interest:["CSC108","MidtermReview","Snowboarding","UIDesign"]},
       posts: [
         {user:"Another User",
         profilePic:"./profile00.jpg",
@@ -106,7 +106,8 @@ class Explore extends React.Component {
 
   render() {
     var allPosts = this.state.posts;
-    var popularPost = allPosts[0];
+    var sortedPosts = allPosts;
+    var popularPost = sortedPosts[0];
     var heart;
     var likes = popularPost.likes;
     if(this.state.liked)
@@ -150,17 +151,25 @@ class Explore extends React.Component {
             </div>
           </div>
           <div className="col-2" id="welcome">
-            <div className="row" id="mentor">{this.state.newMentor.name}</div>
-            <div className="row" id="student">{this.state.newStudent.name}</div>
+            <div className="row" id="mentor">
+              <div id="id">{this.state.newMentor.name}</div>
+              <div id="info"><span>Year {this.state.newMentor.year}</span>|<span>{this.state.newMentor.university}</span></div>
+              <div id="interest">{this.state.newMentor.interest.map(item=><span id="tag">{item}</span>)}</div>
+            </div>
+            <div className="row" id="student">
+              <div id="id">{this.state.newStudent.name}</div>
+              <div id="info"><span>Year {this.state.newStudent.year}</span>|<span>{this.state.newStudent.university}</span></div>
+              <div id="interest">{this.state.newStudent.interest.map(item=><span id="tag">{item}</span>)}</div>
+            </div>
           </div>
         </div>
         <br />
         <div className="row" id="posts">
           {allPosts.map(
-            ({user,time,content,likes,comments,photo}) =>
-            <div className="col-2" id="post">
+            ({user,time,content,likes,comments,photo,id}) =>
+            <div className="col-2 post" id={id}>
               <img id="image" src={process.env.PUBLIC_URL + photo} />
-              <div className="content">{content}</div>
+              <div className="content">"{content}"</div>
               <div className="username">{user}</div>
             </div>)}
         </div>
