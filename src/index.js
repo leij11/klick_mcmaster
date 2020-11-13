@@ -4,12 +4,13 @@ import './index.css';
 import Header from './Header'
 import Profile from './Profile';
 import Explore from './Explore';
+import Settings from './Settings';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Header />
-    <Explore />
+    <Settings />
   </React.StrictMode>,
   document.getElementById('root')
 );
