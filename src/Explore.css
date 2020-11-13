@@ -101,6 +101,13 @@
   margin-right: 2px;
 }
 
+#details {
+  margin-top: 100px;
+  height:70%;
+  width:70%;
+  transform: translate(17%,10%);
+}
+
 .hotUser {
   position: absolute;
   width: 700px;

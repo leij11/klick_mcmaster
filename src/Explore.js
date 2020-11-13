@@ -8,6 +8,7 @@ import user from './user.json';
 import './Explore.css';
 
 import React from 'react';
+import Modal from 'react-modal';
 import {
   HashRouter as Router,
   Route,
@@ -19,6 +20,8 @@ class Explore extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      showDetails:false,
+      currentId:0,
       liked:false,
       newComment:{},
       comment:null,
@@ -29,75 +32,92 @@ class Explore extends React.Component {
         profilePic:"./profile00.jpg",
         time:"Today 10:00AM",
         content:"Most interacted post of today",
-        likes:10,
+        likes:1,
         comments:[{user:"username", text:"some random comment that a user might make to this post"}],
         photo:"./grandpa.jpg",
         id:0},
         {user:"Some User",
+        profilePic:"./profile00.jpg",
         time:"2020-01-01",
         content:"some sample content",
-        likes:0,
+        likes:2,
         comments:[{user:"username", text:"Hamilton, Ontario"}],
         photo:"./grandma.jpg",
         id:1},
         {user:"Sample User",
+        profilePic:"./profile00.jpg",
         time:"2020-01-01",
         content:"some sample content",
-        likes:0,
+        likes:3,
         comments:[],
         photo:"./profile01.jpg",
         id:2},
         {user:"Sample User",
+        profilePic:"./profile00.jpg",
         time:"2020-01-01",
         content:"some sample content",
-        likes:10,
+        likes:4,
         comments:[],
         photo:"./profile00.jpg",
         id:3},
         {user:"Another User",
+        profilePic:"./profile00.jpg",
         time:"2020-01-01",
         content:"some sample content",
-        likes:0,
+        likes:5,
         comments:[],
         photo:"./profile01.jpg",
         id:4},
         {user:"Some User",
+        profilePic:"./profile00.jpg",
         time:"2020-01-01",
         content:"some sample content",
-        likes:0,
+        likes:6,
         comments:[],
         photo:"./profile01.jpg",
         id:5},
         {user:"Sample User",
+        profilePic:"./profile00.jpg",
         time:"2020-01-01",
         content:"some sample content",
-        likes:0,
+        likes:7,
         comments:[],
         photo:"./profile01.jpg",
         id:6},
         {user:"Sample User",
+        profilePic:"./profile00.jpg",
         time:"2020-01-01",
         content:"some sample content",
-        likes:10,
+        likes:8,
         comments:[],
         photo:"./profile01.jpg",
         id:7},
         {user:"Sample User",
+        profilePic:"./profile00.jpg",
         time:"2020-01-01",
         content:"some sample content",
-        likes:0,
+        likes:9,
         comments:[{user:"username", text:"Hamilton, Ontario"}],
         photo:"./profile01.jpg",
         id:8},
         {user:"Sample User",
+        profilePic:"./profile00.jpg",
         time:"2020-01-01",
         content:"some sample content",
         likes:10,
-        comments:[{user:"username", text:"Hamilton, Ontario"}],
+        comments:[{user:"username", text:"Hamilton, Ontario"}, {user:"newName", text:"some other comment"}],
         photo:"./profile01.jpg",
         id:9}
       ]
     };
+  }
+
+  handleOpenModal(index) {
+    this.setState({currentId:index, showDetails: true});
+  }
+
+  handleCloseModal() {
+    this.setState({showDetails: false});
   }
 
   comment() {
@@ -106,7 +126,8 @@ class Explore extends React.Component {
 
   render() {
     var allPosts = this.state.posts;
-    var sortedPosts = allPosts;
+    var sortedPosts = Object.assign([], allPosts);
+    sortedPosts.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
     var popularPost = sortedPosts[0];
     var heart;
     var likes = popularPost.likes;
@@ -115,7 +136,6 @@ class Explore extends React.Component {
       likes = popularPost.likes + 1; }
     else
     { heart = like; }
-    var comment = popularPost.comments[popularPost.comments.length-1];
 
     return (
       <div className="container" id="main">
@@ -166,13 +186,31 @@ class Explore extends React.Component {
         <br />
         <div className="row" id="posts">
           {allPosts.map(
-            ({user,time,content,likes,comments,photo,id}) =>
-            <div className="col-2 post" id={id}>
+            ({user,profilePic,time,content,likes,comments,photo,id}) =>
+            <div className="col-2 post" id={id} onClick={this.handleOpenModal.bind(this,id)}>
               <img id="image" src={process.env.PUBLIC_URL + photo} />
               <div className="content">"{content}"</div>
               <div className="username">{user}</div>
             </div>)}
         </div>
+        <Modal isOpen={this.state.showDetails} id="details">
+          <button onClick={this.handleCloseModal.bind(this)}>Close Modal</button>
+          <div className="container">
+            <div className="row">
+              <img src={process.env.PUBLIC_URL + allPosts[this.state.currentId].profilePic} className="rounded-circle" alt="profile photo" id="profilePhoto"/>
+              <div className="user">{allPosts[this.state.currentId].user}</div>
+              <div className="time">{allPosts[this.state.currentId].time}</div>
+            </div>
+            <div className="row">
+              <div className="row">{allPosts[this.state.currentId].content}</div>
+              <img className="row" src={allPosts[this.state.currentId].photo}/>
+            </div>
+            <div className="row">
+              <img src={process.env.PUBLIC_URL + heart} onClick={()=> this.setState({liked:!this.state.liked})} id="heart"/>
+              <div>{allPosts[this.state.currentId].comments.map(({user,text}) => <div><span>{user} </span><span>{text}</span></div>)}</div>
+            </div>
+          </div>
+        </Modal>
       </div>
     );
   }
