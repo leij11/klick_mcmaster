@@ -36,14 +36,14 @@
   margin: 9px 1px 0 1px;
   height:115px;
   background-color: #813b3b;
-  background-image: url('./mentor.jpg');
+  background-image: url('./images/mentor.jpg');
 }
 
 #student {
   margin: 0px 1px 0px 1px;
   height:115px;
   background-color: #7c4f3f;
-  background-image: url('./student.jpg');
+  background-image: url('./images/student.jpg');
 }
 
 #posts{

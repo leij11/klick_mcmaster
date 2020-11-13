@@ -20,6 +20,8 @@ class Explore extends React.Component {
     super(props);
     this.state = {
       liked:false,
+      newComment:{},
+      comment:null,
       newMentor: {name:"Mentor One",year: 4, university: "McMaster University", interest:["COMPSCI","Photography","cGPA 11.2"]},
       newStudent: {name:"Student One",year: 1, university: "University of Toronto", interest:["CSC108","Midterm Review","Snowboarding","UI Design"]},
       posts: [
@@ -97,14 +99,24 @@ class Explore extends React.Component {
       ]
     };
   }
+
+  comment() {
+    this.setState({newComment:{user:user.name,text:this.state.comment}});
+  }
+
   render() {
     var allPosts = this.state.posts;
     var popularPost = allPosts[0];
     var heart;
-    this.state.liked ? heart = liked : heart = like;
+    var likes = popularPost.likes;
+    if(this.state.liked)
+    { heart = liked;
+      likes = popularPost.likes + 1; }
+    else
+    { heart = like; }
+    var comment = popularPost.comments[popularPost.comments.length-1];
 
     return (
-
       <div className="container" id="main">
         <br/>
         <div className="row" id="announce">
@@ -122,9 +134,19 @@ class Explore extends React.Component {
             </div>
             <div className="interaction">
               <img src={process.env.PUBLIC_URL + heart} onClick={()=> this.setState({liked:!this.state.liked})} id="heart"/>
-              <span>{popularPost.likes}</span>
-              <input type="text" placeholder="what's on your mind?"/>
-              <div><small id="commentName">{popularPost.comments[0].user}</small> <small>{popularPost.comments[0].text}</small></div>
+              <span>{likes}</span>
+              <input type="text"
+                     onChange={e=>{this.setState({comment: e.target.value})}}
+                     onKeyPress={e => {if (e.key === 'Enter')
+                     {
+                       e.preventDefault();
+                       this.comment()
+                       this.setState({comment:''});
+                     }
+                     }}
+                     placeholder="what's on your mind?"
+                     value={this.state.comment}/>
+              <div><small id="commentName">{this.state.newComment.user}</small> <small>{this.state.newComment.text}</small></div>
             </div>
           </div>
           <div className="col-2" id="welcome">
