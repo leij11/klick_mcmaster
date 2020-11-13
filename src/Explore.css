@@ -1,0 +1,68 @@
+#main {
+  margin-top: 100px;
+  background-color: #800000;
+}
+
+#announce {
+  margin-left: 50px;
+}
+
+#hotTopic {
+  height: 250px;
+  background-color: #949494;
+}
+
+#welcome {
+  margin: 0 0 0 10px;
+  height: 250px;
+  background-color: #c08080;
+}
+
+#mentor {
+  margin: 9px 1px 0 1px;
+  height:115px;
+  background-color: #813b3b;
+}
+
+#student {
+  margin: 0px 1px 0px 1px;
+  height:115px;
+  background-color: #7c4f3f;
+}
+
+#posts{
+  width: 94.5%;
+  margin-left: 35px;
+}
+
+#post {
+  background-color: black;
+  height: 300px;
+  margin: 15px;
+  display: block;
+}
+
+#image {
+  margin-left: -15px;
+  height: 300px;
+  width: 175px;
+  opacity: 0.5;
+  object-fit: cover;
+}
+
+.username {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: white;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
