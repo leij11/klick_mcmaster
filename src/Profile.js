@@ -37,8 +37,8 @@ class Sidebar extends React.Component {
             <NavLink eventKey="link-3" to="/analytics">Profile Analysis</NavLink>
             <NavLink eventKey="link-3" to="/analytics">Mentor Matching</NavLink> */}
 
-          <NavLink eventKey="link-1" to="/" className="list-group-item">Personal Information</NavLink>
-          <NavLink eventKey="link-2" to="./survey" className="list-group-item">Self-survey Form</NavLink>
+          <NavLink eventKey="link-1" to="/profile" className="list-group-item">Personal Information</NavLink>
+          <NavLink eventKey="link-2" to="/profile/survey" className="list-group-item">Self-survey Form</NavLink>
           <NavLink eventKey="link-3" to="./analysis" className="list-group-item">Profile Analysis</NavLink>
           <NavLink eventKey="link-4" to="./matching" className="list-group-item">Mentor Matching</NavLink>
 
@@ -168,7 +168,7 @@ class Body extends React.Component {
 
     return (
       <div className="col-9" id="profileInfo" style={{paddingLeft: "0"}}>
-        <Route path={"/"} exact component={
+        <Route path={"/profile"} exact component={
           () =>  <div>
           <div className="row" id="profileImg">
             <img src={process.env.PUBLIC_URL + this.state.profilePic} className="rounded-circle profileImage" alt="profile" />
@@ -214,7 +214,7 @@ class Body extends React.Component {
           </div>
         </div>
       } />
-      <Route path={"/survey"} exact component={() => 
+      <Route path={"/profile/survey"} exact component={() => 
         <Survey />
       } />
       </div>

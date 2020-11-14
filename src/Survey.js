@@ -106,8 +106,8 @@ class Survey extends React.Component {
   render() {
     return (
       <div>
-        <div className="background">d</div>
-        <div className="container">
+        <div className="backgroundSurvey">d</div>
+
           {this.state.edit ?
             <div className="form-container1">
               <div>
@@ -237,7 +237,7 @@ class Survey extends React.Component {
             </div>
 
           }
-        </div >
+       
       </div>
 
     )
