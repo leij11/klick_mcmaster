@@ -1,0 +1,10 @@
+#main {
+  margin-top: 100px;
+  padding: 250px;
+  min-height:100%;
+  background-color: #ebebeb;
+}
+
+#inline span {
+  display: inline-block;
+}
