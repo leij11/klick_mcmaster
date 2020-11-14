@@ -1,6 +1,6 @@
-#main {
+#mainPage {
   margin-top: 100px;
-  background-color: #800000;
+  background: #800000;
 }
 
 #announce {
@@ -22,8 +22,13 @@
 }
 
 #commentName {
+  color: #ffffff;
   font-weight: bold;
   margin-right: 5px;
+}
+
+#commentText {
+  color: #ffffff;
 }
 
 #welcome {
@@ -138,6 +143,10 @@
   margin-left:
 }
 
+#bold {
+  font-weight: bold;
+}
+
 .hotUser {
   position: absolute;
   width: 700px;
@@ -183,6 +192,7 @@
   color: white;
   font-size: 25px;
   font-weight: bold;
+  line-height: normal;
 }
 
 .post {

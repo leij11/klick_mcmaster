@@ -6,6 +6,7 @@ import like from './images/like.png';
 import liked from './images/liked.png';
 import likedb from './images/liked-b.png';
 import user from './user.json';
+import posts from './posts.json';
 import './Explore.css';
 
 import React from 'react';
@@ -44,7 +45,8 @@ class Explore extends React.Component {
   }
 
   render() {
-    var allPosts = this.props.posts;
+    var allPosts;
+    (this.props.posts!=null) ? allPosts = this.props.posts : allPosts = posts;
     var sortedPosts = Object.assign([], allPosts);
     sortedPosts.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
     var popularPost = sortedPosts[0];
@@ -58,7 +60,7 @@ class Explore extends React.Component {
     { heart = like;}
 
     return (
-      <div className="container" id="main">
+      <div className="container" id="mainPage">
         <br/>
         <div className="row" id="announce">
           <div className="col-9" id="hotTopic">
@@ -88,7 +90,7 @@ class Explore extends React.Component {
                      }}
                      placeholder="what's on your mind?"
                      value={this.state.comment}/>
-              <div><small id="commentName">{this.state.newComment.user}</small> <small>{this.state.newComment.text}</small></div>
+              <div><small id="commentName">{this.state.newComment.user}</small> <small id="commentText">{this.state.newComment.text}</small></div>
             </div>
           </div>
           <div className="col-2" id="welcome">
@@ -131,7 +133,7 @@ class Explore extends React.Component {
             <div>
               <img src={process.env.PUBLIC_URL + likedb} id="heart"/><span>{allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].likes}</span>
               <br/>
-              <div id="commentDetails">{(allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].comments!=null) ? allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].comments.map(({user,text}) => <div><span id="commentName">{user}: </span><span>{text}</span></div>) : null}</div>
+              <div id="commentDetails">{(allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].comments!=null) ? allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].comments.map(({user,text}) => <div><span id="bold">{user}: </span><span>{text}</span></div>) : null}</div>
             </div>
           </div>
         </Modal>

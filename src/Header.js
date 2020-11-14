@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Header.css';
 import logo from './images/logo.png';
 import chat from './images/chat.png';
+import setting from './images/setting.png';
 import user from './user.json';
 
 
@@ -44,7 +45,7 @@ class Header extends React.Component {
                       <img className="chat" src={chat} alt="chat" href="./chat" />
                   </li>
                   <li className="nav-item">
-                      <a className="nav-link" id="username" href="./setting">{user.name}</a>
+                      <img className="chat" src={setting} alt="setting" href="./setting" />
                   </li>
                 </ul>
 

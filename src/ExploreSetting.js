@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import './Explore.css';
 import './ExploreSetting.css';
 import logo from './images/logo.png';
 import chat from './images/chat.png';
 import user from './user.json';
 
 import Explore from './Explore';
-import Settings from './Settings';
 
 import React from 'react';
 import Modal from 'react-modal';
@@ -124,7 +124,7 @@ class ExploreSetting extends React.Component {
         <br />
         <div className="row">
           <div className="col text-right">Only show posts contain: </div>
-          <div className="col-8 text-left">
+          <div className="col-6 text-left">
             <div className="custom-control custom-switch">
               <input type="checkbox" className="custom-control-input" checked={this.state.showPhoto} onChange={(event) => this.setState({showPhoto: !this.state.showPhoto})} id="photo"/>
               <label className="custom-control-label" for="photo">Photo</label>
@@ -138,7 +138,7 @@ class ExploreSetting extends React.Component {
         <br />
         <div className="row">
           <div className="col text-right">View posts in descending order by: </div>
-          <div className="col-8 text-left">
+          <div className="col-6 text-left">
             <div className="custom-control custom-switch">
               <input type="checkbox" className="custom-control-input" checked={this.state.sortByLike} onChange={(event) => this.setState({sortByLike: !this.state.sortByLike})} id="likes"/>
               <label className="custom-control-label" for="likes"># of Like(s)</label>
@@ -152,7 +152,7 @@ class ExploreSetting extends React.Component {
         <br />
         <div className="row">
           <div className="col text-right">Block posts contain word: </div>
-          <div className="col-8 text-left" id="inline">
+          <div className="col-6 text-left" id="inline">
             <input type="text" className="noStyle"
               onChange={e=>{this.setState({word: e.target.value})}}
               onKeyPress={e => {if (e.key === 'Enter')
@@ -164,10 +164,11 @@ class ExploreSetting extends React.Component {
                 }
               }
             }} value={this.state.word}/>
-            <span><button disabled={!this.state.block} onClick={()=> this.setState({block:false,blockedWord:null,word:null})}>Remove Block</button></span>
+            <span><button className="buttonStyle" disabled={!this.state.block} onClick={()=> this.setState({block:false,blockedWord:null,word:null})}>Remove Block</button></span>
           </div>
         </div>
       </div>
+        <div className="text-center" id="preview"><h3>Explore Page Preview</h3></div>
         <Explore posts={filteredPosts}/>
       </div>
     );
