@@ -1,10 +1,10 @@
 {
   "name":"Sample User",
-  "email":"suser1280@mcmaster.ca",
+  "university":"McMaster University",
   "studyYear":4,
   "program":"Computer Science",
   "location":"Hamilton, Ontario",
-  "areaOfInterest":"",
+  "areaOfInterest":["interest1","interest2","interest3","interest4"],
   "gpa":3.9,
   "profilePic":"./profile01.jpg"
 }
