@@ -8,6 +8,7 @@ import setting from './images/setting.png';
 import Profile from './Profile';
 import Explore from './Explore';
 import ExploreSetting from './ExploreSetting';
+import Location from './location';
 
 import Discussion from './components/Discussion';
 
@@ -69,6 +70,7 @@ class Main extends React.Component {
             <Route path="/discussion"><Discussion/></Route>
             <Route path="/profile"><Profile/></Route>
             <Route path="/setting"><ExploreSetting/></Route>
+            <Route path="/location"><Location/></Route>
           </div>
 
       </Router>
