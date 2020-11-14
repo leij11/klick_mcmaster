@@ -2,3 +2,8 @@
   width: 25%;
   margin: 15px;
 }
+
+#profileBody {
+  margin-left: -32px;
+  width: 105%;
+}

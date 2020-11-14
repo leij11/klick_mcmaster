@@ -28,7 +28,6 @@
 .list-group-item:hover {
   color: white;
   text-decoration: none;
-  font-style: italic;
   background-color: #570000;
 }
 
