@@ -1,4 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import './Explore.css';
+
 import logo from './images/logo.png';
 import chat from './images/chat.png';
 import edit from './images/edit.png';
@@ -7,7 +9,6 @@ import liked from './images/liked.png';
 import likedb from './images/liked-b.png';
 import user from './user.json';
 import posts from './posts.json';
-import './Explore.css';
 
 import React from 'react';
 import Modal from 'react-modal';

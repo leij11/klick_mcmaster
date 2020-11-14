@@ -13,8 +13,6 @@ import chat from './images/chat.png';
 import edit from './images/edit.png';
 import user from './user.json';
 
-import Header from './Header'
-
 import React from 'react';
 import {
   HashRouter as Router,
@@ -227,9 +225,6 @@ class Profile extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
-          <Header />
-        </div>
         <div className="row" id="profileBody">
           <Sidebar />
           <Body />
