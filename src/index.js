@@ -21,7 +21,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 ReactDOM.render(
   <React.StrictMode>
     <Header />
-    <ExploreSetting />
+    <Profile />
   </React.StrictMode>,
   document.getElementById("root")
 );
