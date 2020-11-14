@@ -27,89 +27,7 @@ class Explore extends React.Component {
       newComment:{},
       comment:null,
       newMentor: {name:"Mentor One",year: 4, university: "McMaster University", interest:["COMPSCI","Photography","cGPA11.2"]},
-      newStudent: {name:"Student One",year: 1, university: "University of Toronto", interest:["CSC108","MidtermReview","Snowboarding","UIDesign"]},
-      posts: [
-        {user:"Another User",
-        profilePic:"./profile00.jpg",
-        time:"Today 10:00AM",
-        content:"Most interacted post of today",
-        likes:1,
-        comments:[{user:"username", text:"some random comment that a user might make to this post"}],
-        photo:"./grandpa.jpg",
-        id:0},
-        {user:"Some User",
-        profilePic:"./profile00.jpg",
-        time:"2020-01-01",
-        content:"some sample content",
-        likes:2,
-        comments:[{user:"username", text:"Hamilton, Ontario"}],
-        photo:"./grandma.jpg",
-        id:1},
-        {user:"Sample User",
-        profilePic:"./profile00.jpg",
-        time:"2020-01-01",
-        content:"some sample content",
-        likes:3,
-        comments:[],
-        photo:"./profile01.jpg",
-        id:2},
-        {user:"Sample User",
-        profilePic:"./profile00.jpg",
-        time:"2020-01-01",
-        content:"some sample content",
-        likes:4,
-        comments:[],
-        photo:"./profile00.jpg",
-        id:3},
-        {user:"Another User",
-        profilePic:"./profile00.jpg",
-        time:"2020-01-01",
-        content:"some sample content",
-        likes:5,
-        comments:[],
-        photo:"./profile01.jpg",
-        id:4},
-        {user:"Some User",
-        profilePic:"./profile00.jpg",
-        time:"2020-01-01",
-        content:"some sample content",
-        likes:6,
-        comments:[],
-        photo:"./profile01.jpg",
-        id:5},
-        {user:"Sample User",
-        profilePic:"./profile00.jpg",
-        time:"2020-01-01",
-        content:"some sample content",
-        likes:7,
-        comments:[],
-        photo:"./profile01.jpg",
-        id:6},
-        {user:"Sample User",
-        profilePic:"./profile00.jpg",
-        time:"2020-01-01",
-        content:"some sample content",
-        likes:8,
-        comments:[],
-        photo:"./profile01.jpg",
-        id:7},
-        {user:"Sample User",
-        profilePic:"./profile00.jpg",
-        time:"2020-01-01",
-        content:"some sample content",
-        likes:9,
-        comments:[{user:"username", text:"Hamilton, Ontario"}],
-        photo:"./profile01.jpg",
-        id:8},
-        {user:"Sample User",
-        profilePic:"./profile00.jpg",
-        time:"2020-01-01",
-        content:"some sample content",
-        likes:10,
-        comments:[{user:"username", text:"Hamilton, Ontario"}, {user:"newName", text:"some other comment"}],
-        photo:"./profile01.jpg",
-        id:9}
-      ]
+      newStudent: {name:"Student One",year: 1, university: "University of Toronto", interest:["CSC108","MidtermReview","Snowboarding","UIDesign"]}
     };
   }
 
@@ -126,7 +44,7 @@ class Explore extends React.Component {
   }
 
   render() {
-    var allPosts = this.state.posts;
+    var allPosts = this.props.posts;
     var sortedPosts = Object.assign([], allPosts);
     sortedPosts.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
     var popularPost = sortedPosts[0];
@@ -159,6 +77,7 @@ class Explore extends React.Component {
               <img src={process.env.PUBLIC_URL + heart} onClick={()=> this.setState({liked:!this.state.liked})} id="heart"/>
               <span>{likes}</span>
               <input type="text"
+                     className="inputWithStyle"
                      onChange={e=>{this.setState({comment: e.target.value})}}
                      onKeyPress={e => {if (e.key === 'Enter')
                      {
@@ -196,24 +115,23 @@ class Explore extends React.Component {
             </div>)}
         </div>
         <Modal isOpen={this.state.showDetails} id="details">
-
           <div className="container">
             <div><button onClick={this.handleCloseModal.bind(this)} className="close">Close</button></div>
             <div className="row">
-              <img src={process.env.PUBLIC_URL + allPosts[this.state.currentId].profilePic} className="rounded-circle" alt="profile photo" id="profilePhoto"/>
+              <img src={process.env.PUBLIC_URL + allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].profilePic} className="rounded-circle" alt="profile photo" id="profilePhoto"/>
               <div id="postsDetails">
-                <div id="userDetails">{allPosts[this.state.currentId].user}</div>
-                <div id="timeDetails">{allPosts[this.state.currentId].time}</div>
+                <div id="userDetails">{allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].user}</div>
+                <div id="timeDetails">{allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].time}</div>
               </div>
             </div>
             <div className="row">
-              <div className="row" id="contentDetails">" {allPosts[this.state.currentId].content} "</div>
-              <div id="photoDetails"><img className="row" src={allPosts[this.state.currentId].photo}/></div>
+              <div className="row" id="contentDetails">" {allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].content} "</div>
+              <div id="photoDetails"><img className="row" src={allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].photo}/></div>
             </div>
             <div>
-              <img src={process.env.PUBLIC_URL + likedb} id="heart"/><span>{allPosts[this.state.currentId].likes}</span>
+              <img src={process.env.PUBLIC_URL + likedb} id="heart"/><span>{allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].likes}</span>
               <br/>
-              <div id="commentDetails">{allPosts[this.state.currentId].comments.map(({user,text}) => <div><span id="commentName">{user}: </span><span>{text}</span></div>)}</div>
+              <div id="commentDetails">{(allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].comments!=null) ? allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].comments.map(({user,text}) => <div><span id="commentName">{user}: </span><span>{text}</span></div>) : null}</div>
             </div>
           </div>
         </Modal>
