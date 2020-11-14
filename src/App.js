@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Match from "./components/Profile";
+import Match from "./components/Match";
 import Discussion from "./components/Discussion";
 import Analytics from "./components/Analytics";
 
