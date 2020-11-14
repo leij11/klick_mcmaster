@@ -12,7 +12,7 @@ import Simon from "./Asset/Simon.jpeg";
 import Bob from "./Asset/Bob.jpeg";
 import Michel from "./Asset/Michel.jpeg";
 
-const Profile = () => {
+const Match = () => {
   const users = [
     {
       name: "Peter",
@@ -149,4 +149,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Match;

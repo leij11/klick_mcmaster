@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Doughnut, Bar, Line } from "react-chartjs-2";
 import { Grid } from "semantic-ui-react";
 import "../App.css";
-import { Container } from "@material-ui/core";
+import { Container, Select, MenuItem, InputLabel } from "@material-ui/core";
 const Analytics = () => {
   const width = 55;
   const height = 285;
@@ -73,6 +73,12 @@ const Analytics = () => {
       interest: "Cook",
     },
   ];
+
+  const [location_select, setlocation_select] = React.useState("");
+
+  const handleLocationChange = (event) => {
+    setlocation_select(event.target.value);
+  };
 
   const faculty_temp = [];
   const location_temp = [];
@@ -386,22 +392,30 @@ const Analytics = () => {
       <div className="style">
         <Grid>
           <Container className="chart-style">
-            <Grid.Row centered columns={2}>
-              <Grid.Column mobile={16} tablet={8} computer={5}>
-                {faculty_chart}
-              </Grid.Column>
-              <Grid.Column mobile={16} tablet={8} computer={5}>
-                {location_chart}
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row centered columns={2}>
-              <Grid.Column mobile={16} tablet={8} computer={5}>
-                {date_chart}
-              </Grid.Column>
-              <Grid.Column mobile={16} tablet={8} computer={5}>
-                {interest_chart}
-              </Grid.Column>
-            </Grid.Row>
+            <InputLabel id="demo-simple-select-label">Location</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={location_select}
+              onChange={handleLocationChange}
+            >
+              <MenuItem value={"Toronto"}>Toronto</MenuItem>
+              <MenuItem value={"Markham"}>Markham</MenuItem>
+              <MenuItem value={"Hamilton"}>Hamilton</MenuItem>
+            </Select>
+            <Grid.Column mobile={16} tablet={8} computer={5}>
+              {faculty_chart}
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={8} computer={5}>
+              {location_chart}
+            </Grid.Column>
+
+            <Grid.Column mobile={16} tablet={8} computer={5}>
+              {date_chart}
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={8} computer={5}>
+              {interest_chart}
+            </Grid.Column>
           </Container>
         </Grid>
       </div>
