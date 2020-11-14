@@ -37,10 +37,10 @@ class Sidebar extends React.Component {
             <NavLink eventKey="link-3" to="/analytics">Profile Analysis</NavLink>
             <NavLink eventKey="link-3" to="/analytics">Mentor Matching</NavLink> */}
 
-          <NavLink eventKey="link-1" to="/profile" className="list-group-item">Personal Information</NavLink>
-          <NavLink eventKey="link-2" to="/profile/survey" className="list-group-item">Self-survey Form</NavLink>
-          <NavLink eventKey="link-3" to="./analysis" className="list-group-item">Profile Analysis</NavLink>
-          <NavLink eventKey="link-4" to="./matching" className="list-group-item">Mentor Matching</NavLink>
+          <div style={{padding: "5px"}}><NavLink eventKey="link-2" to="/profile" ><div className="list-group-item" >Personal Information</div></NavLink></div>
+          <div style={{padding: "5px"}}><NavLink eventKey="link-3" to="/profile/survey"> <div className="list-group-item">Self-survey Form</div></NavLink></div>
+          <div style={{padding: "5px"}}><NavLink eventKey="link-4" to="./analysis"> <div className="list-group-item">Profile Analysis</div></NavLink></div>
+          <div style={{padding: "5px"}}><NavLink eventKey="link-5" to="./matching"><div className="list-group-item">Mentor Matching</div></NavLink></div>
 
           
           <Route path={"/matching"} component="" />
