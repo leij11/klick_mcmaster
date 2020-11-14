@@ -27,12 +27,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const FormValid = ({ formik }) => {
-  const classes = useStyles();
-  const options = [
-    { key: "s", text: "Study", value: "study", name: "study" },
-    { key: "w", text: "Work", value: "work" },
-    { key: "o", text: "Social", value: "Social" },
-  ];
   return (
     <Form>
       <Form.Group widths="equal">
@@ -87,6 +81,7 @@ const FormValid = ({ formik }) => {
         onChange={formik.handleChange}
         value={formik.values.description}
         name="description"
+        style={{ minHeight: 400 }}
       />
     </Form>
   );
