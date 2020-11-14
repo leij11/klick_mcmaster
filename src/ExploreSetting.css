@@ -1,10 +1,34 @@
 #main {
+  color: #800000;
   margin-top: 100px;
   padding: 250px;
   min-height:100%;
   background-color: #ebebeb;
 }
 
+#preview {
+  margin-top: 20px;
+  margin-bottom: -70px;
+  color: #800000;
+}
+
 #inline span {
   display: inline-block;
+}
+
+.noStyle {
+  border: 0px;
+}
+
+.buttonStyle {
+  margin-left: 5px;
+  border: 0px;
+  background-color: #800000;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.buttonStyle:disabled {
+  background-color: #ebebeb;
+  color: #ebebeb;
 }
