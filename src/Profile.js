@@ -13,7 +13,8 @@ import chat from './images/chat.png';
 import edit from './images/edit.png';
 import user from './user.json';
 
-import Header from './Header'
+import Header from './Header';
+import Survey from './Survey';
 
 import React from 'react';
 import {
@@ -26,16 +27,28 @@ import {
 class Sidebar extends React.Component {
   render() {
     return (
-      <div className="col-3">
-      <div id="sidebar">
-        <br />
-        <br />
-        <a href="#" className="list-group-item">Personal Information</a>
-        <a href="./survey" className="list-group-item">Self-survey Form</a>
-        <a href="./analysis" className="list-group-item">Profile Analysis</a>
-        <a href="./matching" className="list-group-item">Mentor Matching</a>
+      <div className="col-3" style={{paddingRight: "0"}}>
+        <div id="sidebar">
+          <br />
+          <br />
+
+
+          {/* <NavLink eventKey="link-1" to="/home">Personal Information</NavLink>
+            <NavLink eventKey="link-2" to="/survey">Self-survey Form</NavLink>
+            <NavLink eventKey="link-3" to="/analytics">Profile Analysis</NavLink>
+            <NavLink eventKey="link-3" to="/analytics">Mentor Matching</NavLink> */}
+
+          <NavLink eventKey="link-1" to="/" className="list-group-item">Personal Information</NavLink>
+          <NavLink eventKey="link-2" to="./survey" className="list-group-item">Self-survey Form</NavLink>
+          <NavLink eventKey="link-3" to="./analysis" className="list-group-item">Profile Analysis</NavLink>
+          <NavLink eventKey="link-4" to="./matching" className="list-group-item">Mentor Matching</NavLink>
+
+          
+          <Route path={"/matching"} component="" />
+
+
+        </div>
       </div>
-    </div>
     );
   }
 }
@@ -44,7 +57,7 @@ class Body extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editName:false, editUni:false, editYear:false, editProgram:false, editLocation:false, editInterest:false, editGpa:false, editProfile:false,
+      editName: false, editUni: false, editYear: false, editProgram: false, editLocation: false, editInterest: false, editGpa: false, editProfile: false,
       username: user.name, university: user.university, studyYear: user.studyYear,
       program: user.program, location: user.location,
       interest: user.areaOfInterest, cgpa: user.gpa,
@@ -65,161 +78,160 @@ class Body extends React.Component {
     var gpa = this.state.cgpa;
     var profiles;
 
-    if(this.state.editName)
-    {
+    if (this.state.editName) {
       username = <input type="text"
-      value={this.state.textName}
-      onChange={e=>{this.setState({textName: e.target.value})}}
-      onKeyPress={e => {if (e.key === 'Enter')
-      {
-        e.preventDefault();
-        this.setState({username:this.state.textName, editName:false});
-      }
-      }}/>;
+        value={this.state.textName}
+        onChange={e => { this.setState({ textName: e.target.value }) }}
+        onKeyPress={e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            this.setState({ username: this.state.textName, editName: false });
+          }
+        }} />;
     }
 
-    if(this.state.editUni)
-    {
+    if (this.state.editUni) {
       university = <input type="text"
-      value={this.state.textUni}
-      onChange={e=>{this.setState({textUni: e.target.value})}}
-      onKeyPress={e => {if (e.key === 'Enter')
-      {
-        e.preventDefault();
-        this.setState({university:this.state.textUni, editUni:false});
-      }
-      }}/>;
+        value={this.state.textUni}
+        onChange={e => { this.setState({ textUni: e.target.value }) }}
+        onKeyPress={e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            this.setState({ university: this.state.textUni, editUni: false });
+          }
+        }} />;
     }
 
-    if(this.state.editYear)
-    {
+    if (this.state.editYear) {
       year = <input type="number"
-      value={this.state.textYear}
-      onChange={e=>{this.setState({textYear: e.target.value})}}
-      onKeyPress={e => {if (e.key === 'Enter')
-      {
-        e.preventDefault();
-        this.setState({studyYear:this.state.textYear, editYear:false});
-      }
-      }}/>;
+        value={this.state.textYear}
+        onChange={e => { this.setState({ textYear: e.target.value }) }}
+        onKeyPress={e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            this.setState({ studyYear: this.state.textYear, editYear: false });
+          }
+        }} />;
     }
 
-    if(this.state.editProgram)
-    {
+    if (this.state.editProgram) {
       program = <input type="text"
-      value={this.state.textProgram}
-      onChange={e=>{this.setState({textProgram: e.target.value})}}
-      onKeyPress={e => {if (e.key === 'Enter')
-      {
-        e.preventDefault();
-        this.setState({program:this.state.textProgram, editProgram:false});
-      }
-      }}/>;
+        value={this.state.textProgram}
+        onChange={e => { this.setState({ textProgram: e.target.value }) }}
+        onKeyPress={e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            this.setState({ program: this.state.textProgram, editProgram: false });
+          }
+        }} />;
     }
 
-    if(this.state.editLocation)
-    {
+    if (this.state.editLocation) {
       location = <input type="text"
-      value={this.state.textLocation}
-      onChange={e=>{this.setState({textLocation: e.target.value})}}
-      onKeyPress={e => {if (e.key === 'Enter')
-      {
-        e.preventDefault();
-        this.setState({location:this.state.textLocation, editLocation:false});
-      }
-      }}/>;
+        value={this.state.textLocation}
+        onChange={e => { this.setState({ textLocation: e.target.value }) }}
+        onKeyPress={e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            this.setState({ location: this.state.textLocation, editLocation: false });
+          }
+        }} />;
     }
 
-    if(this.state.editInterest)
-    {
+    if (this.state.editInterest) {
       interest = <input type="text"
-      value={this.state.textInterest}
-      onChange={e=>{this.setState({textInterest: e.target.value})}}
-      onKeyPress={e => {if (e.key === 'Enter')
-      {
-        e.preventDefault();
-        this.setState({interest:this.state.textInterest.split(","), editInterest:false});
-      }
-      }}/>;
+        value={this.state.textInterest}
+        onChange={e => { this.setState({ textInterest: e.target.value }) }}
+        onKeyPress={e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            this.setState({ interest: this.state.textInterest.split(","), editInterest: false });
+          }
+        }} />;
     }
 
-    if(this.state.editGpa)
-    {
+    if (this.state.editGpa) {
       gpa = <input type="text"
-      value={this.state.textGpa}
-      onChange={e=>{this.setState({textGpa: e.target.value})}}
-      onKeyPress={e => {if (e.key === 'Enter')
-      {
-        e.preventDefault();
-        this.setState({cgpa:this.state.textGpa, editGpa:false});
-      }
-      }}/>;
+        value={this.state.textGpa}
+        onChange={e => { this.setState({ textGpa: e.target.value }) }}
+        onKeyPress={e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            this.setState({ cgpa: this.state.textGpa, editGpa: false });
+          }
+        }} />;
     }
 
-    if(this.state.editProfile)
-    {
-      var photos = [p1,p2,p3,p4,p5,p6];
-      profiles = photos.map(photo => <img className="profilePhotos" src={photo} onClick={()=> this.setState({profilePic:photo, editProfile:false})}/>);
+    if (this.state.editProfile) {
+      var photos = [p1, p2, p3, p4, p5, p6];
+      profiles = photos.map(photo => <img className="profilePhotos" src={photo} onClick={() => this.setState({ profilePic: photo, editProfile: false })} />);
     }
 
     return (
-      <div className="col-9" id="profileInfo">
-        <div className="row" id="profileImg">
-          <img src={process.env.PUBLIC_URL + this.state.profilePic} className="rounded-circle profileImage" alt="profile"/>
-          <div className="text-center" id="changeImage" onClick={() => {this.setState({editProfile:true})}}>Edit Profile Photo</div>
-          <div>{profiles}</div>
-        </div>
-        <div className="row" id="profileDetails">
-          <div className="col-5 text-right" id="profilePrompt"><p>Name*: </p></div>
-          <div className="col-6 text-left">{username}<img className="edit" onClick={() => {this.setState({editName:true})}} src={edit} /></div>
-        </div>
-        <br/>
-        <div className="row" id="profileDetails">
-          <div className="col-5 text-right" id="profilePrompt"><p>University*: </p></div>
-          <div className="col-6 text-left">{university} <img className="edit" onClick={() => {this.setState({editUni:true})}} src={edit} /></div>
-        </div>
-        <br/>
-        <div className="row" id="profileDetails">
-          <div className="col-5 text-right" id="profilePrompt"><p>Year of Study*: </p></div>
-          <div className="col-6 text-left">{year} <img className="edit" onClick={() => {this.setState({editYear:true})}} src={edit} /></div>
-        </div>
-        <br/>
-        <div className="row" id="profileDetails">
-          <div className="col-5 text-right" id="profilePrompt"><p>Program*: </p></div>
-          <div className="col-6 text-left">{program} <img className="edit" onClick={() => {this.setState({editProgram:true})}} src={edit} /></div>
-        </div>
-        <br/>
-        <div className="row" id="profileDetails">
-          <div className="col-5 text-right" id="profilePrompt"><p>Location: </p></div>
-          <div className="col-6 text-left">{location} <img className="edit" onClick={() => {this.setState({editLocation:true})}} src={edit} /></div>
-        </div>
-        <br/>
-        <div className="row" id="profileDetails">
-          <div className="col-5 text-right" id="profilePrompt"><p>Area of Interest: <br/><small>please split item by comma(,)</small></p></div>
-          <div className="col-6 text-left">
-            {(!this.state.editInterest) ? interest.map(area => <span className="interestTag">{area}</span>) : interest}
-            <img className="edit" onClick={() => {this.setState({editInterest:true})}} src={edit} />
+      <div className="col-9" id="profileInfo" style={{paddingLeft: "0"}}>
+        <Route path={"/"} exact component={
+          () =>  <div>
+          <div className="row" id="profileImg">
+            <img src={process.env.PUBLIC_URL + this.state.profilePic} className="rounded-circle profileImage" alt="profile" />
+            <div className="text-center" id="changeImage" onClick={() => { this.setState({ editProfile: true }) }}>Edit Profile Photo</div>
+            <div>{profiles}</div>
+          </div>
+          <div className="row" id="profileDetails">
+            <div className="col-5 text-right" id="profilePrompt"><p>Name*: </p></div>
+            <div className="col-6 text-left">{username}<img className="edit" onClick={() => { this.setState({ editName: true }) }} src={edit} /></div>
+          </div>
+          <br />
+          <div className="row" id="profileDetails">
+            <div className="col-5 text-right" id="profilePrompt"><p>University*: </p></div>
+            <div className="col-6 text-left">{university} <img className="edit" onClick={() => { this.setState({ editUni: true }) }} src={edit} /></div>
+          </div>
+          <br />
+          <div className="row" id="profileDetails">
+            <div className="col-5 text-right" id="profilePrompt"><p>Year of Study*: </p></div>
+            <div className="col-6 text-left">{year} <img className="edit" onClick={() => { this.setState({ editYear: true }) }} src={edit} /></div>
+          </div>
+          <br />
+          <div className="row" id="profileDetails">
+            <div className="col-5 text-right" id="profilePrompt"><p>Program*: </p></div>
+            <div className="col-6 text-left">{program} <img className="edit" onClick={() => { this.setState({ editProgram: true }) }} src={edit} /></div>
+          </div>
+          <br />
+          <div className="row" id="profileDetails">
+            <div className="col-5 text-right" id="profilePrompt"><p>Location: </p></div>
+            <div className="col-6 text-left">{location} <img className="edit" onClick={() => { this.setState({ editLocation: true }) }} src={edit} /></div>
+          </div>
+          <br />
+          <div className="row" id="profileDetails">
+            <div className="col-5 text-right" id="profilePrompt"><p>Area of Interest: <br /><small>please split item by comma(,)</small></p></div>
+            <div className="col-6 text-left">
+              {(!this.state.editInterest) ? interest.map(area => <span className="interestTag">{area}</span>) : interest}
+              <img className="edit" onClick={() => { this.setState({ editInterest: true }) }} src={edit} />
+            </div>
+          </div>
+          <br />
+          <div className="row" id="profileDetails">
+            <div className="col-5 text-right" id="profilePrompt"><p>CGPA: </p></div>
+            <div className="col-6 text-left">{gpa} <img className="edit" onClick={() => { this.setState({ editGpa: true }) }} src={edit} /></div>
           </div>
         </div>
-        <br/>
-        <div className="row" id="profileDetails">
-          <div className="col-5 text-right" id="profilePrompt"><p>CGPA: </p></div>
-          <div className="col-6 text-left">{gpa} <img className="edit" onClick={() => {this.setState({editGpa:true})}} src={edit} /></div>
-        </div>
+      } />
+      <Route path={"/survey"} exact component={() => 
+        <Survey />
+      } />
       </div>
+      
+     
     );
   }
 }
 
-class ProfilePhoto extends React.Component
-{
-  render ()
-  {
+class ProfilePhoto extends React.Component {
+  render() {
     return (
       <div className="m-5">
-        <img src={process.env.PUBLIC_URL + user.profilePic} className="rounded-circle profileImage" alt="profile"/>
+        <img src={process.env.PUBLIC_URL + user.profilePic} className="rounded-circle profileImage" alt="profile" />
       </div>
-     );
+    );
   }
 };
 
@@ -231,8 +243,10 @@ class Profile extends React.Component {
           <Header />
         </div>
         <div className="row" id="profileBody">
-          <Sidebar />
-          <Body />
+          <Router>
+            <Sidebar />
+            <Body />
+          </Router>
         </div>
       </div>
     );
