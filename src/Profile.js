@@ -13,7 +13,6 @@ import chat from './images/chat.png';
 import edit from './images/edit.png';
 import user from './user.json';
 
-import Header from './Header';
 import Survey from './Survey';
 
 import React from 'react';
@@ -239,9 +238,6 @@ class Profile extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
-          <Header />
-        </div>
         <div className="row" id="profileBody">
           <Router>
             <Sidebar />
