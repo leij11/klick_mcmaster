@@ -96,20 +96,25 @@ const Match = () => {
 
   const [match, setmatch] = useState(users);
   useEffect(() => {
-    if (!Engineering) {
+    if (!Engineering && !Commerce && !Science) {
+      setmatch([]);
+    } else if (!Commerce && !Science) {
+      setmatch(users.filter((post) => post.faculty === "Engineering"));
+    } else if (!Commerce && !Engineering) {
+      setmatch(users.filter((post) => post.faculty === "Science"));
+    } else if (!Science && !Engineering) {
+      setmatch(users.filter((post) => post.faculty === "Commerce"));
+    } else if (!Science) {
+      setmatch(users.filter((post) => post.faculty !== "Science"));
+    } else if (!Commerce) {
+      setmatch(users.filter((post) => post.faculty !== "Commerce"));
+    } else if (!Engineering) {
       setmatch(users.filter((post) => post.faculty !== "Engineering"));
     }
-    if (!Commerce) {
-      setmatch(users.filter((post) => post.faculty !== "Commerce"));
-    }
-    if (!Science) {
-      setmatch(users.filter((post) => post.faculty !== "Science"));
-    }
-
     if (Engineering & Commerce & Science) {
       setmatch(users);
     }
-  });
+  }, users);
 
   const [matchscore, setmatchscore] = useState(false);
   const showprogress = () => {
@@ -165,10 +170,6 @@ const Match = () => {
                         {item.location}. He likes to {item.interest} in his
                         spare time.
                       </Card.Text>
-
-                      <Button variant="success" onClick={showprogress}>
-                        Check Matching%
-                      </Button>
 
                       {matchscore && <h3> Matching Score : {item.score}</h3>}
                       {matchscore && <ProgressBar now={item.score} />}
