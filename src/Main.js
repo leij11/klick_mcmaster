@@ -26,7 +26,7 @@ class Main extends React.Component {
     return (
       <Router>
         <div>
-          <nav className="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar" id="header">
+          <nav className="navbar fixed-top navbar-expand-lg" id="header">
             <div className="container">
               <a className="navbar-brand">
                 <img className="logo" src={logo} alt="Logo"/>
@@ -35,7 +35,7 @@ class Main extends React.Component {
 
                 <ul className="navbar-nav mr-auto">
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/explore">Explore</NavLink>
+                    <NavLink className="nav-item  nav-link" to="/explore">Explore</NavLink>
                   </li>
                   <li className="nav-item">
                     <NavLink className="nav-link" to="/discussion">Discussion</NavLink>
