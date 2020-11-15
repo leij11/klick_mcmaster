@@ -3,8 +3,7 @@ import { Doughnut, Bar, Line } from "react-chartjs-2";
 import { Grid } from "semantic-ui-react";
 import "../App.css";
 import { Container, Select, MenuItem, InputLabel } from "@material-ui/core";
-import { Card, Button, Accordion, Form } from "react-bootstrap";
-import Match from "./Match";
+import { Card, Button, Accordion } from "react-bootstrap";
 const Analytics = () => {
   const width = 55;
   const height = 285;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import { v4 as uuidv4 } from "uuid";
 import { Container, Grid } from "semantic-ui-react";
-import "semantic-ui-css/semantic.min.css";
 import PostList from "./actions/PostList";
 import Form from "./actions/Form";
 import Head from "./actions/Head";

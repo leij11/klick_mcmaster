@@ -10,9 +10,6 @@ import {
 import { Icon, Header, Card } from "semantic-ui-react";
 import ItemDetail from "./ItemDetail";
 
-import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
-
 function PostList(props) {
   const [study, setstudy] = useState([]);
   const [work, setwork] = useState([]);
@@ -37,8 +34,10 @@ function PostList(props) {
         <Grid item>
           <div style={{ marginTop: "2rem" }}>
             <Header as="h2" icon textAlign="center">
+              <Typography variant="h3" gutterBottom>
+                Study Section
+              </Typography>
               <Icon name="student" circular />
-              <Header.Content>Study Section</Header.Content>
             </Header>
           </div>
           <Card.Group itemsPerRow={2}>
@@ -52,10 +51,12 @@ function PostList(props) {
             ))}
           </Card.Group>
 
-          <div style={{ marginTop: "3rem" }}>
+          <div style={{ marginTop: "4rem" }}>
             <Header as="h2" icon textAlign="center">
+              <Typography variant="h3" gutterBottom>
+                Work Section
+              </Typography>
               <Icon name="suitcase" circular />
-              <Header.Content>Work Section</Header.Content>
             </Header>
           </div>
           <Card.Group itemsPerRow={2}>
@@ -70,8 +71,10 @@ function PostList(props) {
           </Card.Group>
           <div style={{ marginTop: "3rem" }}>
             <Header as="h2" icon textAlign="center">
+              <Typography variant="h3" gutterBottom>
+                Social Section
+              </Typography>
               <Icon name="street view" circular />
-              <Header.Content>Social Section</Header.Content>
             </Header>
           </div>
           <Card.Group itemsPerRow={2}>
