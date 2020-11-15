@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './Explore.css';
 import './ExploreSetting.css';
 import logo from './images/logo.png';
 import chat from './images/chat.png';

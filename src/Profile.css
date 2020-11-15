@@ -1,9 +1,64 @@
+.edit {
+  margin: 0 0 3px 10px;
+  height: 12px;
+}
+
 .profilePhotos {
   width: 25%;
   margin: 15px;
 }
 
+.profileImage {
+  width: 120px;
+}
+
+.interestTag {
+  border-radius: 5px;
+  color: white;
+  margin: 3px;
+  padding: 3px 7px 3px 7px;
+  background-color: #c38a8a;
+}
+
+small {
+  color: #979696;
+}
+
 #profileBody {
-  margin-left: -32px;
-  width: 105%;
+  background-color: #ebebeb;
+  width: 102.75%;
+  margin: 100px 0% 0% -15px;
+}
+
+#sidebar {
+  height: 100%;
+  margin: 0 0 0 -15px;
+  background-color: #800000;
+}
+
+#profileImg {
+  width: 100%;
+  font-weight: bold;
+  color: #570000;
+  font-size: 12px;
+  margin: 50px 0 5% 0;
+  text-align: center;
+  display:inline-block;
+}
+
+#profileDetails {
+  margin: 0 0 0 5%;
+}
+
+#profilePrompt {
+  color: #570000;
+}
+
+#changeImage {
+  margin-top: 10px;
+}
+
+#profileInfo {
+  padding-bottom: 100px;
+  bottom: 0;
 }
