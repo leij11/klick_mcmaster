@@ -1,15 +1,20 @@
 .style {
   background-color: #800000;
-  height: 200vh;
+  height: 300vh;
   display: block;
   margin-top: 8.3rem;
 }
 
 .chart-style {
   background-color: #ffffff;
-  height: 150vh;
+  height: 200vh;
   display: block;
   margin-top: 6rem;
+}
+
+.chart-title {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .Match-Card {
@@ -23,10 +28,11 @@
 .Match-Label {
   font-size: medium;
   margin-right: 1rem;
-  margin-left: -1.2rem;
+  margin-left: 1rem;
   -webkit-text-stroke: 1px black; /* width and color */
 }
 
 .Match-Button {
-  margin-top: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 }

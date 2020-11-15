@@ -114,8 +114,9 @@ const Match = () => {
   const [matchscore, setmatchscore] = useState(false);
   const showprogress = () => {
     setmatchscore(!matchscore);
+    //console.log("clicked");
   };
-  //console.log(Engineering);
+  //console.log(matchscore);
   //console.log(match);
   return (
     <React.Fragment>
@@ -143,6 +144,13 @@ const Match = () => {
               />
               <label>Science</label>
             </Jumbotron>
+            <Button
+              variant="success"
+              onClick={showprogress}
+              className="Match-Button"
+            >
+              Check Matching%
+            </Button>
             <Carousel className="Match-Card">
               {match.map((item) => (
                 <Carousel.Item>
@@ -155,9 +163,7 @@ const Match = () => {
                         {item.location}. He likes to {item.interest} in his
                         spare time.
                       </Card.Text>
-                      <Button variant="success" onClick={showprogress}>
-                        Check Matching%
-                      </Button>
+
                       {matchscore && <h3> Matching Score : {item.score}</h3>}
                       {matchscore && <ProgressBar now={item.score} />}
                     </Card.Body>

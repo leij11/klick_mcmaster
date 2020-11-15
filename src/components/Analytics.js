@@ -3,6 +3,8 @@ import { Doughnut, Bar, Line } from "react-chartjs-2";
 import { Grid } from "semantic-ui-react";
 import "../App.css";
 import { Container, Select, MenuItem, InputLabel } from "@material-ui/core";
+import { Card, Button, Accordion, Form } from "react-bootstrap";
+import Match from "./Match";
 const Analytics = () => {
   const width = 55;
   const height = 285;
@@ -74,17 +76,27 @@ const Analytics = () => {
     },
   ];
 
-  const [location_select, setlocation_select] = React.useState("");
+  const [location_select, setlocation_select] = React.useState("All");
 
   const handleLocationChange = (event) => {
     setlocation_select(event.target.value);
   };
 
+  const [match, setmatch] = useState(users);
+  useEffect(() => {
+    if (location_select !== "All") {
+      setmatch(users.filter((post) => post.location === location_select));
+    }
+    if (location_select === "All") {
+      setmatch(users);
+    }
+  });
+
   const faculty_temp = [];
   const location_temp = [];
   const date_temp = [];
   const interest_temp = [];
-  users.forEach((item) => {
+  match.forEach((item) => {
     //console.log(faculty_temp);
     //console.log(location_temp);
     faculty_temp[item.faculty]
@@ -392,7 +404,22 @@ const Analytics = () => {
       <div className="style">
         <Grid>
           <Container className="chart-style">
+            <Accordion defaultActiveKey="0" className="chart-title">
+              <Card>
+                <Card.Header>
+                  <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                    <h3> Total Number of Chats</h3>
+                  </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>
+                    <h2>{match.length} Chats</h2>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
             <InputLabel id="demo-simple-select-label">Location</InputLabel>
+
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -400,9 +427,13 @@ const Analytics = () => {
               onChange={handleLocationChange}
             >
               <MenuItem value={"Toronto"}>Toronto</MenuItem>
-              <MenuItem value={"Markham"}>Markham</MenuItem>
               <MenuItem value={"Hamilton"}>Hamilton</MenuItem>
+              <MenuItem value={"Markham"}>Markham</MenuItem>
+              <MenuItem value={"Waterloo"}>Waterloo</MenuItem>
+              <MenuItem value={"Mississauga"}>Mississauga</MenuItem>
+              <MenuItem value={"All"}>All</MenuItem>
             </Select>
+
             <Grid.Column mobile={16} tablet={8} computer={5}>
               {faculty_chart}
             </Grid.Column>
