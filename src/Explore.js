@@ -65,11 +65,11 @@ class Explore extends React.Component {
         <br/>
         <div className="row" id="announce">
           <div className="col-9" id="hotTopic">
-            <img id="hotPhoto" src={process.env.PUBLIC_URL + popularPost.photo} />
+            <img id="hotPhoto" src={popularPost.photo} />
             <div className="content">{popularPost.content}</div>
             <div className="row hotUser">
               <div className="col-1">
-                <img src={process.env.PUBLIC_URL + popularPost.profilePic} className="rounded-circle" alt="profile photo" id="profilePhoto"/>
+                <img src={popularPost.profilePic} className="rounded-circle" alt="profile photo" id="profilePhoto"/>
               </div>
               <div className="hotUserId col-5">
                 <div className="user">{popularPost.user}</div>
@@ -112,7 +112,7 @@ class Explore extends React.Component {
           {allPosts.map(
             ({user,profilePic,time,content,likes,comments,photo,id}) =>
             <div className="col-2 post" id={id} onClick={this.handleOpenModal.bind(this,id)}>
-              <img id="image" src={process.env.PUBLIC_URL + photo} />
+              <img id="image" src={photo} />
               <div className="content">"{content}"</div>
               <div className="username">{user}</div>
             </div>)}
@@ -121,7 +121,7 @@ class Explore extends React.Component {
           <div className="container">
             <div><button onClick={this.handleCloseModal.bind(this)} className="close">Close</button></div>
             <div className="row">
-              <img src={process.env.PUBLIC_URL + allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].profilePic} className="rounded-circle" alt="profile photo" id="profilePhoto"/>
+              <img src={allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].profilePic} className="rounded-circle" alt="profile photo" id="profilePhoto"/>
               <div id="postsDetails">
                 <div id="userDetails">{allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].user}</div>
                 <div id="timeDetails">{allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].time}</div>
