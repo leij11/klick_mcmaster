@@ -32,7 +32,7 @@ class Main extends React.Component {
           <nav className="navbar fixed-top navbar-expand-lg" id="header">
             <div className="container">
               <a className="navbar-brand">
-                <img className="logo" src={logo} alt="Logo"/>
+                <img className="logo" src={logo} alt="Logo" />
               </a>
               <div className="collapse navbar-collapse" id="navText">
 
@@ -64,34 +64,34 @@ class Main extends React.Component {
 
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                      <NavLink to="/chat"><img className="chat" src={chat} alt="chat" /></NavLink>
+                    <a href="./chat_lastbuild/chat.html"><img className="chat" src={chat} alt="chat" /></a>
                   </li>
                   <li className="nav-item">
-                      <NavLink to="/setting"><img className="chat" src={setting} alt="setting" /></NavLink>
+                    <NavLink to="/setting"><img className="chat" src={setting} alt="setting" /></NavLink>
                   </li>
                 </ul>
               </div>
             </div>
           </nav>
-            {
-              // Render a different component depending on the path, "/" is the
-              // "no path" case.  We add the property exact to have it render
-              // only on exact matches, otherwise "/" would also match for
-              // things like "/about".
-            }
-            <Route exact path="/" component={Explore}/>
-            <Route path="/explore"><Explore/></Route>
-            <Route path="/discussion"><Discussion/></Route>
-            <Route path="/profile"><Profile/></Route>
-            <Route path="/setting"><ExploreSetting/></Route>
-            <Route path="/location"><Location/></Route>
-            <Route path={"/analysis"}>
-              <Analytics />
-            </Route>
-            <Route path={"/match"}>
-              <Match />
-            </Route>
-          </div>
+          {
+            // Render a different component depending on the path, "/" is the
+            // "no path" case.  We add the property exact to have it render
+            // only on exact matches, otherwise "/" would also match for
+            // things like "/about".
+          }
+          <Route exact path="/" component={Explore} />
+          <Route path="/explore"><Explore /></Route>
+          <Route path="/discussion"><Discussion /></Route>
+          <Route path="/profile"><Profile /></Route>
+          <Route path="/setting"><ExploreSetting /></Route>
+          <Route path="/location"><Location /></Route>
+          <Route path={"/analysis"}>
+            <Analytics />
+          </Route>
+          <Route path={"/match"}>
+            <Match />
+          </Route>
+        </div>
 
       </Router>
     );
