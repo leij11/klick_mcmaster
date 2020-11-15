@@ -58,7 +58,7 @@ function Discussion(props) {
     },
     {
       id: uuidv4(),
-      title: "Amazon Onsite Next Week",
+      title: "Amazon Onsite",
       author: "Emily",
       description: "What to prepare for the onsite interview next week",
       date: "2020-11-10",
@@ -101,7 +101,7 @@ function Discussion(props) {
     },
     {
       id: uuidv4(),
-      title: "Hosting Coffee Break JHE",
+      title: "Hosting Coffee Break ",
       author: "Simon",
       description: "Hosting coffee break this week in JHE",
       date: "2020-11-12",

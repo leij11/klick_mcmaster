@@ -9,6 +9,8 @@ import {
   ButtonBase,
   Typography,
   IconButton,
+  Container,
+  ButtonGroup,
 } from "@material-ui/core";
 import pic from "../Asset/pic.png";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -67,28 +69,29 @@ const ItemDetail = (props) => {
               <Grid item>
                 <Typography variant="subtitle1">{props.date}</Typography>
               </Grid>
-              <Button variant="primary" onClick={handleShow}>
-                Open to View Post
-              </Button>
-              <IconButton onClick={() => props.handleDelete(props.id)}>
-                <DeleteIcon />
-              </IconButton>
-
-              <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                  <Modal.Title>{props.title}</Modal.Title>
-                </Modal.Header>
-                <Typography variant="h5">Description</Typography>
-                <Modal.Body>{props.description}</Modal.Body>
-                <Typography variant="h5">Comment</Typography>
-                <CommentPost />
-                <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
-                    Close
-                  </Button>
-                </Modal.Footer>
-              </Modal>
+              <ButtonGroup>
+                <Button variant="primary" onClick={handleShow}>
+                  Open to View Post
+                </Button>
+                <IconButton onClick={() => props.handleDelete(props.id)}>
+                  <DeleteIcon />
+                </IconButton>
+              </ButtonGroup>
             </Grid>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>{props.title}</Modal.Title>
+              </Modal.Header>
+              <Typography variant="h5">Description</Typography>
+              <Modal.Body>{props.description}</Modal.Body>
+              <Typography variant="h5">Comment</Typography>
+              <CommentPost />
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </Grid>
         </Paper>
       </div>

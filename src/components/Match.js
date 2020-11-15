@@ -29,7 +29,7 @@ const Match = () => {
       score: 86,
     },
     {
-      name: "Jason",
+      name: "Kitty",
       location: "Markham",
       faculty: "Engineering",
       profile: Jeff,
@@ -37,7 +37,7 @@ const Match = () => {
       score: 93,
     },
     {
-      name: "Jeff",
+      name: "Mina",
       location: "Hamilton",
       faculty: "Commerce",
       profile: Jason,
@@ -45,7 +45,7 @@ const Match = () => {
       score: 74,
     },
     {
-      name: "Andy",
+      name: "Paul",
       location: "Mississauga",
       faculty: "Commerce",
       profile: Paul,
@@ -53,7 +53,7 @@ const Match = () => {
       score: 53,
     },
     {
-      name: "Paul",
+      name: "Lola",
       location: "Hamilton",
       faculty: "Engineering",
       profile: Simon,
@@ -77,7 +77,7 @@ const Match = () => {
       score: 60,
     },
     {
-      name: "Bob",
+      name: "Annie",
       location: "Hamilton",
       faculty: "Engineering",
       profile: Michel,
@@ -124,7 +124,9 @@ const Match = () => {
         <Grid>
           <Container className="chart-style">
             <Jumbotron fluid className="Match-Header">
-              <label className="Match-Label" style={{paddingLeft: "5%"}}>Faculty Select</label>
+              <label className="Match-Label" style={{ paddingLeft: "5%" }}>
+                Faculty Select
+              </label>
               <input
                 onClick={handleEngineerChange}
                 checked={Engineering}
@@ -168,7 +170,6 @@ const Match = () => {
                         Check Matching%
                       </Button>
 
-
                       {matchscore && <h3> Matching Score : {item.score}</h3>}
                       {matchscore && <ProgressBar now={item.score} />}
                     </Card.Body>
@@ -179,10 +180,23 @@ const Match = () => {
                     alt="First slide"
                   />
                 </Carousel.Item>
-
               ))}
             </Carousel>
-            <a href="./chat_lastbuild/chat.html"><div style={{ backgroundColor: "#800000a5", color: "white", borderRadius: "3px", textAlign: "center", width: "20%", margin: "auto", fontSize: "20px" }}>CHAT</div></a>
+            <a href="./chat_lastbuild/chat.html">
+              <div
+                style={{
+                  backgroundColor: "#800000a5",
+                  color: "white",
+                  borderRadius: "3px",
+                  textAlign: "center",
+                  width: "20%",
+                  margin: "auto",
+                  fontSize: "20px",
+                }}
+              >
+                CHAT
+              </div>
+            </a>
           </Container>
         </Grid>
       </div>

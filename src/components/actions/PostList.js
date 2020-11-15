@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Typography } from "@material-ui/core";
-import { Icon, Header, Card } from "semantic-ui-react";
+import { Grid, Typography, GridList } from "@material-ui/core";
+import { Icon, Header } from "semantic-ui-react";
 import ItemDetail from "./ItemDetail";
 
 function PostList(props) {
@@ -18,12 +18,7 @@ function PostList(props) {
   //console.log(work);
   return (
     <React.Fragment>
-      <Grid
-        container
-        direction="column"
-        spacing={5}
-        style={{ marginTop: "1.5rem", marginBottom: "1.5rem" }}
-      >
+      <Grid container style={{ marginTop: "1.5rem", marginBottom: "1.5rem" }}>
         <Grid item>
           <div style={{ marginTop: "2rem" }}>
             <Header as="h2" icon textAlign="center">
@@ -33,7 +28,7 @@ function PostList(props) {
               <Icon name="student" circular />
             </Header>
           </div>
-          <Card.Group itemsPerRow={2}>
+          <GridList cols={2}>
             {study.map((item) => (
               <ItemDetail
                 title={item.title}
@@ -44,7 +39,7 @@ function PostList(props) {
                 handleDelete={props.handleDelete}
               />
             ))}
-          </Card.Group>
+          </GridList>
 
           <div style={{ marginTop: "4rem" }}>
             <Header as="h2" icon textAlign="center">
@@ -54,7 +49,7 @@ function PostList(props) {
               <Icon name="suitcase" circular />
             </Header>
           </div>
-          <Card.Group itemsPerRow={2}>
+          <GridList cols={2}>
             {work.map((item) => (
               <ItemDetail
                 title={item.title}
@@ -65,7 +60,7 @@ function PostList(props) {
                 handleDelete={props.handleDelete}
               />
             ))}
-          </Card.Group>
+          </GridList>
           <div style={{ marginTop: "3rem" }}>
             <Header as="h2" icon textAlign="center">
               <Typography variant="h3" gutterBottom>
@@ -74,7 +69,7 @@ function PostList(props) {
               <Icon name="street view" circular />
             </Header>
           </div>
-          <Card.Group itemsPerRow={2}>
+          <GridList cols={2}>
             {social.map((item) => (
               <ItemDetail
                 title={item.title}
@@ -85,7 +80,7 @@ function PostList(props) {
                 handleDelete={props.handleDelete}
               />
             ))}
-          </Card.Group>
+          </GridList>
         </Grid>
       </Grid>
     </React.Fragment>
