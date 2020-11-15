@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import { v4 as uuidv4 } from "uuid";
-import { CssBaseline, Container, Grid } from "@material-ui/core";
-
+import { Container, Grid } from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
 import PostList from "./actions/PostList";
 import Form from "./actions/Form";
-import Header from "./actions/Header";
+import Head from "./actions/Head";
 import "../App.css";
 
 function Discussion(props) {
@@ -194,24 +194,25 @@ function Discussion(props) {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-      <Grid className="style">
-        <Container className="chart-style">
-          <Header handleFabClick={handleDiaOpen} />
-          <PostList
-            posts={posts}
-            handleDelete={handleDelete}
-            handleEditClick={handleEditClick}
+      <div className="style">
+        <Grid>
+          <Container className="chart-style">
+            <Head handleFabClick={handleDiaOpen} />
+            <PostList
+              posts={posts}
+              handleDelete={handleDelete}
+              handleEditClick={handleEditClick}
+            />
+          </Container>
+          <Form
+            open={isOpen}
+            handleClose={handleDiaClose}
+            handleSubmit={handleSubmit}
+            formik={formik}
+            isEdit={isEdit}
           />
-        </Container>
-        <Form
-          open={isOpen}
-          handleClose={handleDiaClose}
-          handleSubmit={handleSubmit}
-          formik={formik}
-          isEdit={isEdit}
-        />
-      </Grid>
+        </Grid>
+      </div>
     </React.Fragment>
   );
 }

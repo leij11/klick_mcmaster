@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Header({ handleFabClick, name }) {
+function Head({ handleFabClick, name }) {
   const classes = useStyles();
   return (
     <Grid container alignItems="center" style={{ marginTop: "2rem" }}>
@@ -77,4 +77,4 @@ function Header({ handleFabClick, name }) {
   );
 }
 
-export default Header;
+export default Head;

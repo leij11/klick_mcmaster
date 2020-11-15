@@ -1,12 +1,32 @@
 .style {
   background-color: #800000;
-  height: 220vh;
+  height: 200vh;
   display: block;
+  margin-top: 8.3rem;
 }
 
 .chart-style {
   background-color: #ffffff;
-  height: 180vh;
+  height: 150vh;
   display: block;
   margin-top: 6rem;
+}
+
+.Match-Card {
+  margin-bottom: 2rem;
+}
+
+.Match-Title {
+  margin-top: 2rem;
+}
+
+.Match-Label {
+  font-size: medium;
+  margin-right: 1rem;
+  margin-left: -1.2rem;
+  -webkit-text-stroke: 1px black; /* width and color */
+}
+
+.Match-Button {
+  margin-top: 5rem;
 }

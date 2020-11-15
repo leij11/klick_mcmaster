@@ -8,7 +8,6 @@ import {
   Button,
   Form,
 } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 import CommentPost from "./CommentPost.js";
 
 const ItemDetail = (props) => {
