@@ -37,14 +37,10 @@ class Sidebar extends React.Component {
             <NavLink eventKey="link-3" to="/analytics">Profile Analysis</NavLink>
             <NavLink eventKey="link-3" to="/analytics">Mentor Matching</NavLink> */}
 
-          <NavLink eventKey="link-1" to="/" className="list-group-item">Personal Information</NavLink>
-          <NavLink eventKey="link-2" to="./survey" className="list-group-item">Self-survey Form</NavLink>
-          <NavLink eventKey="link-3" to="./analysis" className="list-group-item">Profile Analysis</NavLink>
-          <NavLink eventKey="link-4" to="./matching" className="list-group-item">Mentor Matching</NavLink>
-
-          
-          <Route path={"/matching"} component="" />
-
+          <NavLink eventKey="link-2" exact to="/profile" ><div className="list-group-item">Personal Information</div></NavLink>
+          <NavLink eventKey="link-3" to="/profile/survey"> <div className="list-group-item">Self-survey Form</div></NavLink>
+          <NavLink eventKey="link-4" to="/profile/analysis"> <div className="list-group-item">Profile Analysis</div></NavLink>
+          <NavLink eventKey="link-5" to="/profile/matching"><div className="list-group-item">Mentor Matching</div></NavLink>
 
         </div>
       </div>
@@ -168,71 +164,62 @@ class Body extends React.Component {
 
     return (
       <div className="col-9" id="profileInfo" style={{paddingLeft: "0"}}>
-        <Route path={"/"} exact component={
-          () =>  <div>
-          <div className="row" id="profileImg">
-            <img src={process.env.PUBLIC_URL + this.state.profilePic} className="rounded-circle profileImage" alt="profile" />
-            <div className="text-center" id="changeImage" onClick={() => { this.setState({ editProfile: true }) }}>Edit Profile Photo</div>
-            <div>{profiles}</div>
-          </div>
-          <div className="row" id="profileDetails">
-            <div className="col-5 text-right" id="profilePrompt"><p>Name*: </p></div>
-            <div className="col-6 text-left">{username}<img className="edit" onClick={() => { this.setState({ editName: true }) }} src={edit} /></div>
-          </div>
-          <br />
-          <div className="row" id="profileDetails">
-            <div className="col-5 text-right" id="profilePrompt"><p>University*: </p></div>
-            <div className="col-6 text-left">{university} <img className="edit" onClick={() => { this.setState({ editUni: true }) }} src={edit} /></div>
-          </div>
-          <br />
-          <div className="row" id="profileDetails">
-            <div className="col-5 text-right" id="profilePrompt"><p>Year of Study*: </p></div>
-            <div className="col-6 text-left">{year} <img className="edit" onClick={() => { this.setState({ editYear: true }) }} src={edit} /></div>
-          </div>
-          <br />
-          <div className="row" id="profileDetails">
-            <div className="col-5 text-right" id="profilePrompt"><p>Program*: </p></div>
-            <div className="col-6 text-left">{program} <img className="edit" onClick={() => { this.setState({ editProgram: true }) }} src={edit} /></div>
-          </div>
-          <br />
-          <div className="row" id="profileDetails">
-            <div className="col-5 text-right" id="profilePrompt"><p>Location: </p></div>
-            <div className="col-6 text-left">{location} <img className="edit" onClick={() => { this.setState({ editLocation: true }) }} src={edit} /></div>
-          </div>
-          <br />
-          <div className="row" id="profileDetails">
-            <div className="col-5 text-right" id="profilePrompt"><p>Area of Interest: <br /><small>please split item by comma(,)</small></p></div>
-            <div className="col-6 text-left">
-              {(!this.state.editInterest) ? interest.map(area => <span className="interestTag">{area}</span>) : interest}
-              <img className="edit" onClick={() => { this.setState({ editInterest: true }) }} src={edit} />
+
+        <Route exact path="/profile">
+          <div>
+            <div className="row" id="profileImg">
+              <img src={process.env.PUBLIC_URL + this.state.profilePic} className="rounded-circle profileImage" alt="profile" />
+              <div className="text-center" id="changeImage" onClick={() => { this.setState({ editProfile: true }) }}>Edit Profile Photo</div>
+              <div>{profiles}</div>
+            </div>
+            <div className="row" id="profileDetails">
+              <div className="col-5 text-right" id="profilePrompt"><p>Name*: </p></div>
+              <div className="col-6 text-left">{username}<img className="edit" onClick={() => { this.setState({ editName: true }) }} src={edit} /></div>
+            </div>
+            <br />
+            <div className="row" id="profileDetails">
+              <div className="col-5 text-right" id="profilePrompt"><p>University*: </p></div>
+              <div className="col-6 text-left">{university} <img className="edit" onClick={() => { this.setState({ editUni: true }) }} src={edit} /></div>
+            </div>
+            <br />
+            <div className="row" id="profileDetails">
+              <div className="col-5 text-right" id="profilePrompt"><p>Year of Study*: </p></div>
+              <div className="col-6 text-left">{year} <img className="edit" onClick={() => { this.setState({ editYear: true }) }} src={edit} /></div>
+            </div>
+            <br />
+            <div className="row" id="profileDetails">
+              <div className="col-5 text-right" id="profilePrompt"><p>Program*: </p></div>
+              <div className="col-6 text-left">{program} <img className="edit" onClick={() => { this.setState({ editProgram: true }) }} src={edit} /></div>
+            </div>
+            <br />
+            <div className="row" id="profileDetails">
+              <div className="col-5 text-right" id="profilePrompt"><p>Location: </p></div>
+              <div className="col-6 text-left">{location} <img className="edit" onClick={() => { this.setState({ editLocation: true }) }} src={edit} /></div>
+            </div>
+            <br />
+            <div className="row" id="profileDetails">
+              <div className="col-5 text-right" id="profilePrompt"><p>Area of Interest: <br /><small>please split item by comma(,)</small></p></div>
+              <div className="col-6 text-left">
+                {(!this.state.editInterest) ? interest.map(area => <span className="interestTag">{area}</span>) : interest}
+                <img className="edit" onClick={() => { this.setState({ editInterest: true }) }} src={edit} />
+              </div>
+            </div>
+            <br />
+            <div className="row" id="profileDetails">
+              <div className="col-5 text-right" id="profilePrompt"><p>CGPA: </p></div>
+              <div className="col-6 text-left">{gpa} <img className="edit" onClick={() => { this.setState({ editGpa: true }) }} src={edit} /></div>
             </div>
           </div>
-          <br />
-          <div className="row" id="profileDetails">
-            <div className="col-5 text-right" id="profilePrompt"><p>CGPA: </p></div>
-            <div className="col-6 text-left">{gpa} <img className="edit" onClick={() => { this.setState({ editGpa: true }) }} src={edit} /></div>
-          </div>
-        </div>
-      } />
-      <Route path={"/survey"} exact component={() => 
+      </Route>
+      <Route exact path="/profile/survey" exact component={() =>
         <Survey />
       } />
       </div>
-      
-     
+
+
     );
   }
 }
-
-class ProfilePhoto extends React.Component {
-  render() {
-    return (
-      <div className="m-5">
-        <img src={process.env.PUBLIC_URL + user.profilePic} className="rounded-circle profileImage" alt="profile" />
-      </div>
-    );
-  }
-};
 
 class Profile extends React.Component {
   render() {

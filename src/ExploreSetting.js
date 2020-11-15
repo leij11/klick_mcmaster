@@ -3,6 +3,7 @@ import './Explore.css';
 import './ExploreSetting.css';
 import logo from './images/logo.png';
 import chat from './images/chat.png';
+import posts from './posts.json';
 import user from './user.json';
 
 import Explore from './Explore';
@@ -10,109 +11,20 @@ import Explore from './Explore';
 import React from 'react';
 import Modal from 'react-modal';
 
-import {
-  HashRouter as Router,
-  Route,
-  Link,
-  NavLink
-} from 'react-router-dom';
-
 class ExploreSetting extends React.Component {
   constructor(props) {
     super(props);
     this.state = {showPhoto:false, showComment:false,
       sortByLike:false, sortByComment:false,
-      block:false,blockedWord:null,word:null,
-      posts: [
-      {user:"Another User",
-      profilePic:"./profile00.jpg",
-      time:"Today 10:00AM",
-      content:"Description 1",
-      likes:1,
-      comments:[{user:"username", text:"some first comment that a user might make to this post"}],
-      photo:"./grandpa.jpg",
-      id:0},
-      {user:"Some User",
-      profilePic:"./profile00.jpg",
-      time:"Yesterday 2:05PM",
-      content:"Description 2",
-      likes:2,
-      comments:[{user:"username", text:"comment for 2nd post"}],
-      photo:"./grandma.jpg",
-      id:1},
-      {user:"Sample User",
-      profilePic:"./profile00.jpg",
-      time:"2020-01-01",
-      content:"No comment 3",
-      likes:3,
-      comments:[],
-      photo:"./profile01.jpg",
-      id:2},
-      {user:"Sample User",
-      profilePic:"./profile00.jpg",
-      time:"2020-01-01",
-      content:"No comment 4",
-      likes:4,
-      comments:[],
-      photo:"./profile00.jpg",
-      id:3},
-      {user:"Another User",
-      profilePic:"./profile00.jpg",
-      time:"2020-01-01",
-      content:"Some special text 5",
-      likes:5,
-      comments:[{user:"myname", text:"comment for 5th post"}],
-      photo:"./profile01.jpg",
-      id:4},
-      {user:"Some User",
-      profilePic:"./profile00.jpg",
-      time:"2020-01-01",
-      content:"No Comment 6",
-      likes:6,
-      comments:[],
-      photo:"./profile01.jpg",
-      id:5},
-      {user:"Sample User",
-      profilePic:"./profile00.jpg",
-      time:"2020-01-01",
-      content:"No Photo 7",
-      likes:7,
-      comments:[{user:"username7", text:"new comment for 7th post"}],
-      photo:null,
-      id:6},
-      {user:"Sample User",
-      profilePic:"./profile00.jpg",
-      time:"2020-01-01",
-      content:"No Comment 8",
-      likes:8,
-      comments:[],
-      photo:"./profile01.jpg",
-      id:7},
-      {user:"Sample User",
-      profilePic:"./profile00.jpg",
-      time:"2020-01-01",
-      content:"No Photo 9",
-      likes:9,
-      comments:[{user:"user9 Name", text:"first comment for 9th post"}],
-      photo:null,
-      id:8},
-      {user:"Sample User",
-      profilePic:"./profile00.jpg",
-      time:"2020-01-01",
-      content:"Description 10",
-      likes:10,
-      comments:[{user:"username", text:"Hamilton, Ontario"}, {user:"newName", text:"some other comment"}],
-      photo:"./profile01.jpg",
-      id:9}
-    ]};
+      block:false,blockedWord:null,word:null};
   }
 
   render() {
-    var filteredPosts = this.state.posts;
+    var filteredPosts = posts;
 
-    if (this.state.showPhoto) filteredPosts = this.state.posts.filter(item => item.photo !== null);
-    if (this.state.showComment) filteredPosts = this.state.posts.filter(item => item.comments.length !== 0);
-    if (this.state.block) filteredPosts = this.state.posts.filter(item => !item.content.includes(this.state.blockedWord));
+    if (this.state.showPhoto) filteredPosts = posts.filter(item => item.photo !== null);
+    if (this.state.showComment) filteredPosts = posts.filter(item => item.comments.length !== 0);
+    if (this.state.block) filteredPosts = filteredPosts.filter(item => !item.content.toLowerCase().includes(this.state.blockedWord));
 
     if (this.state.sortByLike) filteredPosts.sort((a, b) => (a.likes < b.likes) ? 1 : -1);
     if (this.state.sortByComment) filteredPosts.sort((a, b) => (a.comments.length < b.comments.length) ? 1 : -1);
@@ -169,7 +81,7 @@ class ExploreSetting extends React.Component {
         </div>
       </div>
         <div className="text-center" id="preview"><h3>Explore Page Preview</h3></div>
-        <Explore posts={filteredPosts}/>
+        <div id="pre"><Explore posts={filteredPosts}/></div>
       </div>
     );
   }

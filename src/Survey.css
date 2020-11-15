@@ -2,24 +2,17 @@
   text-align: center;
 }
 
-html, body {
-  background-color: #FFF2CC;
-}
 
-#root {
-  background-color: #FFF2CC;
-}
-
-.background {
+.backgroundSurvey {
   background-color: #800000a9;
-  color: #80000060;
+  color: transparent;
   width: 100%;
-  height: 120px;
+  height: 50px;
   position: absolute;
   top: 0;
 }
 
-.container {
+.containerSurvey {
   text-align: center;
   position: relative;
 }
@@ -29,7 +22,6 @@ html, body {
 }
 
 .form-container1 {
-  
   margin: 50px auto;
   width: 90%;
   text-align: left;
@@ -39,7 +31,7 @@ html, body {
   border-radius: 10px;
 }
 
-ul {
+.containerSurvey ul {
   padding: 0;
 }
 
@@ -65,7 +57,7 @@ h1 {
   color: lightgray;
 }
 
-li {
+.form-container1 li {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
@@ -103,7 +95,7 @@ li .button-container {
   text-align: center;
 }
 
-li {
+.form-container1 li {
   padding: 0 20px;
   margin-bottom: 50px;
 }
