@@ -12,7 +12,6 @@ import {
 } from "@material-ui/core";
 import pic from "../Asset/pic.png";
 import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,13 +72,6 @@ const ItemDetail = (props) => {
               </Button>
               <IconButton onClick={() => props.handleDelete(props.id)}>
                 <DeleteIcon />
-              </IconButton>
-              <IconButton
-                onClick={() => {
-                  props.handleEditClick(props.id);
-                }}
-              >
-                <EditIcon />
               </IconButton>
 
               <Modal show={show} onHide={handleClose}>

@@ -12,7 +12,7 @@ function PostList(props) {
     setstudy(props.posts.filter((post) => post.topic === "Study"));
     setwork(props.posts.filter((post) => post.topic === "Work"));
     setsocial(props.posts.filter((post) => post.topic === "Social"));
-  });
+  }, [props.posts]);
 
   //console.log(study);
   //console.log(work);
@@ -42,7 +42,6 @@ function PostList(props) {
                 description={item.description}
                 id={item.id}
                 handleDelete={props.handleDelete}
-                handleEditClick={props.handleEditClick}
               />
             ))}
           </Card.Group>
@@ -64,7 +63,6 @@ function PostList(props) {
                 description={item.description}
                 id={item.id}
                 handleDelete={props.handleDelete}
-                handleEditClick={props.handleEditClick}
               />
             ))}
           </Card.Group>
@@ -85,7 +83,6 @@ function PostList(props) {
                 description={item.description}
                 id={item.id}
                 handleDelete={props.handleDelete}
-                handleEditClick={props.handleEditClick}
               />
             ))}
           </Card.Group>
