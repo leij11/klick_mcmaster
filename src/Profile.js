@@ -166,7 +166,7 @@ class Body extends React.Component {
         <Route exact path="/profile">
           <div>
             <div className="row" id="profileImg">
-              <img src={process.env.PUBLIC_URL + this.state.profilePic} className="rounded-circle profileImage" alt="profile" />
+              <img src={this.state.profilePic} className="rounded-circle profileImage" alt="profile" />
               <div className="text-center" id="changeImage" onClick={() => { this.setState({ editProfile: true }) }}>Edit Profile Photo</div>
               <div>{profiles}</div>
             </div>
