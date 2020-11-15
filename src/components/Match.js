@@ -124,7 +124,7 @@ const Match = () => {
         <Grid>
           <Container className="chart-style">
             <Jumbotron fluid className="Match-Header">
-              <label className="Match-Label">Faculty Select</label>
+              <label className="Match-Label" style={{paddingLeft: "5%"}}>Faculty Select</label>
               <input
                 onClick={handleEngineerChange}
                 checked={Engineering}
@@ -164,6 +164,11 @@ const Match = () => {
                         spare time.
                       </Card.Text>
 
+                      <Button variant="success" onClick={showprogress}>
+                        Check Matching%
+                      </Button>
+
+
                       {matchscore && <h3> Matching Score : {item.score}</h3>}
                       {matchscore && <ProgressBar now={item.score} />}
                     </Card.Body>
@@ -173,12 +178,11 @@ const Match = () => {
                     src={item.profile}
                     alt="First slide"
                   />
-                  <Button variant="primary" className="Match-Button">
-                    Chat
-                  </Button>
                 </Carousel.Item>
+
               ))}
             </Carousel>
+            <a href="./chat_lastbuild/chat.html"><div style={{ backgroundColor: "#800000a5", color: "white", borderRadius: "3px", textAlign: "center", width: "20%", margin: "auto", fontSize: "20px" }}>CHAT</div></a>
           </Container>
         </Grid>
       </div>
