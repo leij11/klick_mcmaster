@@ -28,8 +28,8 @@ class Explore extends React.Component {
       liked:false,
       newComment:{},
       comment:null,
-      newMentor: {name:"Mentor One",year: 4, university: "McMaster University", interest:["COMPSCI","Photography","cGPA11.2"]},
-      newStudent: {name:"Student One",year: 1, university: "University of Toronto", interest:["CSC108","MidtermReview","Snowboarding","UIDesign"]}
+      newMentor: {name:"Nick Russell",year: 4, university: "McMaster University", interest:["COMPSCI","Photography","cGPA11.2"]},
+      newStudent: {name:"Emily Aloha",year: 1, university: "University of Toronto", interest:["CSC108","MidtermReview","Snowboarding","UIDesign"]}
     };
   }
 

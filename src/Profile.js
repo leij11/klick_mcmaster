@@ -39,8 +39,6 @@ class Sidebar extends React.Component {
 
           <NavLink eventKey="link-2" exact to="/profile" ><div className="list-group-item">Personal Information</div></NavLink>
           <NavLink eventKey="link-3" to="/profile/survey"> <div className="list-group-item">Self-survey Form</div></NavLink>
-          <NavLink eventKey="link-4" to="/profile/analysis"> <div className="list-group-item">Profile Analysis</div></NavLink>
-          <NavLink eventKey="link-5" to="/profile/matching"><div className="list-group-item">Mentor Matching</div></NavLink>
 
         </div>
       </div>
