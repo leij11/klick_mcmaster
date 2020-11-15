@@ -18,7 +18,8 @@ function Discussion(props) {
       id: uuidv4(),
       title: "Cs4hc3 help",
       author: "Jessica",
-      description: "Keep having bug in A3.",
+      description:
+        "If you look at the survey data you are provided with carefully, you should be able to see that in order for a list to accommodate all the users, in comparison to the posted example code, only 3 additional fields of information per item for a list would be required (some users require a date, some require a priority level, some require 'additional text' of some kind).  The fact that they need these fields for different purposes (tasks, projects, etc), or whether the date is a 'deadline' or a 'due date' doesn't really matter... fundamentally it's the same things that need to be added to help all of those users.  It's like how it doesn't matter if a user wants to post a picture on Twitter for news or for sharing video game reviews, what matters is that they want to post a picture, and the one feature accommodates both user's goals.  It's like how it doesn't matter if we use the example code for creating a list in order to create a list of grocery items or a list of party ideas... it lets us make a list, and so it serves both goals.  It's the same situation here... if you look at what the users are asking for carefully, there are only 3 additional features (a date, a priority level, extra text description) for the functionality of an individual list. ",
       date: "2020-11-11",
       topic: "Study",
     },
@@ -34,13 +35,14 @@ function Discussion(props) {
       id: uuidv4(),
       title: "Compsci 3MI3 Question",
       author: "Suri",
-      description: "Cannot solve Compsci 3MI3 Assignment 2. Need help!",
+      description:
+        "If you look at the survey data you are provided with carefully, you should be able to see that in order for a list to accommodate all the users, in comparison to the posted example code, only 3 additional fields of information per item for a list would be required (some users require a date, some require a priority level, some require 'additional text' of some kind).  The fact that they need these fields for different purposes (tasks, projects, etc), or whether the date is a 'deadline' or a 'due date' doesn't really matter... fundamentally it's the same things that need to be added to help all of those users.  It's like how it doesn't matter if a user wants to post a picture on Twitter for news or for sharing video game reviews, what matters is that they want to post a picture, and the one feature accommodates both user's goals.  It's like how it doesn't matter if we use the example code for creating a list in order to create a list of grocery items or a list of party ideas... it lets us make a list, and so it serves both goals.  It's the same situation here... if you look at what the users are asking for carefully, there are only 3 additional features (a date, a priority level, extra text description) for the functionality of an individual list. ",
       date: "2020-11-12",
       topic: "Study",
     },
     {
       id: uuidv4(),
-      title: "Ski 2020",
+      title: "Skateboarding Anyone 2020",
       author: "Jackson",
       description: "Anyone going to ski together on Dec 24, 2020?",
       date: "2020-11-11",
@@ -66,7 +68,8 @@ function Discussion(props) {
       id: uuidv4(),
       title: "Cs4hc3 help",
       author: "Jessica",
-      description: "Keep having bug in A3.",
+      description:
+        "If you look at the survey data you are provided with carefully, you should be able to see that in order for a list to accommodate all the users, in comparison to the posted example code, only 3 additional fields of information per item for a list would be required (some users require a date, some require a priority level, some require 'additional text' of some kind).  The fact that they need these fields for different purposes (tasks, projects, etc), or whether the date is a 'deadline' or a 'due date' doesn't really matter... fundamentally it's the same things that need to be added to help all of those users.  It's like how it doesn't matter if a user wants to post a picture on Twitter for news or for sharing video game reviews, what matters is that they want to post a picture, and the one feature accommodates both user's goals.  It's like how it doesn't matter if we use the example code for creating a list in order to create a list of grocery items or a list of party ideas... it lets us make a list, and so it serves both goals.  It's the same situation here... if you look at what the users are asking for carefully, there are only 3 additional features (a date, a priority level, extra text description) for the functionality of an individual list. ",
       date: "2020-11-11",
       topic: "Study",
     },
@@ -74,7 +77,8 @@ function Discussion(props) {
       id: uuidv4(),
       title: "Google Interview",
       author: "Jenny",
-      description: "Having interview next week",
+      description:
+        "If you look at the survey data you are provided with carefully, you should be able to see that in order for a list to accommodate all the users, in comparison to the posted example code, only 3 additional fields of information per item for a list would be required (some users require a date, some require a priority level, some require 'additional text' of some kind).  The fact that they need these fields for different purposes (tasks, projects, etc), or whether the date is a 'deadline' or a 'due date' doesn't really matter... fundamentally it's the same things that need to be added to help all of those users.  It's like how it doesn't matter if a user wants to post a picture on Twitter for news or for sharing video game reviews, what matters is that they want to post a picture, and the one feature accommodates both user's goals.  It's like how it doesn't matter if we use the example code for creating a list in order to create a list of grocery items or a list of party ideas... it lets us make a list, and so it serves both goals.  It's the same situation here... if you look at what the users are asking for carefully, there are only 3 additional features (a date, a priority level, extra text description) for the functionality of an individual list. ",
       date: "2020-11-10",
       topic: "Work",
     },
@@ -82,13 +86,14 @@ function Discussion(props) {
       id: uuidv4(),
       title: "Compsci 3MI3 Question",
       author: "Suri",
-      description: "Cannot solve Compsci 3MI3 Assignment 2. Need help!",
+      description:
+        "If you look at the survey data you are provided with carefully, you should be able to see that in order for a list to accommodate all the users, in comparison to the posted example code, only 3 additional fields of information per item for a list would be required (some users require a date, some require a priority level, some require 'additional text' of some kind).  The fact that they need these fields for different purposes (tasks, projects, etc), or whether the date is a 'deadline' or a 'due date' doesn't really matter... fundamentally it's the same things that need to be added to help all of those users.  It's like how it doesn't matter if a user wants to post a picture on Twitter for news or for sharing video game reviews, what matters is that they want to post a picture, and the one feature accommodates both user's goals.  It's like how it doesn't matter if we use the example code for creating a list in order to create a list of grocery items or a list of party ideas... it lets us make a list, and so it serves both goals.  It's the same situation here... if you look at what the users are asking for carefully, there are only 3 additional features (a date, a priority level, extra text description) for the functionality of an individual list. ",
       date: "2020-11-12",
       topic: "Study",
     },
     {
       id: uuidv4(),
-      title: "Ski 2020",
+      title: "Looking for Ski Partner 2020",
       author: "Jackson",
       description: "Anyone going to ski together on Dec 24, 2020?",
       date: "2020-11-11",
@@ -96,7 +101,7 @@ function Discussion(props) {
     },
     {
       id: uuidv4(),
-      title: "Coffee Break",
+      title: "Hosting Coffee Break JHE",
       author: "Simon",
       description: "Hosting coffee break this week in JHE",
       date: "2020-11-12",

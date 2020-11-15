@@ -1,19 +1,16 @@
 import React from "react";
 import {
-  Dialog,
   DialogContent,
   DialogTitle,
-  Grid,
   DialogActions,
   Button,
-  TextField,
 } from "@material-ui/core";
 import FormValid from "./FormValid";
-import { Modal } from "semantic-ui-react";
+import { Modal } from "react-bootstrap";
 
 const Form = (props) => {
   return (
-    <Modal onOpen={props.open} onClose={props.handleClose} open={props.open}>
+    <Modal show={props.open} onHide={props.handleClose}>
       <DialogTitle>
         {props.isEdit ? "Update " : "Add "}
         Post

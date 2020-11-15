@@ -1,20 +1,18 @@
-import React from "react";
-import { Feed, Icon, Header, Modal, Form } from "semantic-ui-react";
+import React, { useState } from "react";
+import { Feed, Icon, Header, Form } from "semantic-ui-react";
 import CommentPost from "./CommentPost.js";
-import { Card, Button, Media } from "react-bootstrap";
+import { Card, Button, Media, Modal } from "react-bootstrap";
 import {
-  TextField,
-  FormControl,
-  Select,
-  InputLabel,
-  MenuItem,
   Grid,
   makeStyles,
   Paper,
   ButtonBase,
   Typography,
+  IconButton,
 } from "@material-ui/core";
 import pic from "../Asset/pic.png";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +37,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ItemDetail = (props) => {
-  const [open, setOpen] = React.useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const classes = useStyles();
 
   return (
@@ -62,15 +64,38 @@ const ItemDetail = (props) => {
                     {props.author}
                   </Typography>
                 </Grid>
-                <Grid item>
-                  <Typography variant="body2" style={{ cursor: "pointer" }}>
-                    Open
-                  </Typography>
-                </Grid>
               </Grid>
               <Grid item>
                 <Typography variant="subtitle1">{props.date}</Typography>
               </Grid>
+              <Button variant="primary" onClick={handleShow}>
+                Open to View Post
+              </Button>
+              <IconButton onClick={() => props.handleDelete(props.id)}>
+                <DeleteIcon />
+              </IconButton>
+              <IconButton
+                onClick={() => {
+                  props.handleEditClick(props.id);
+                }}
+              >
+                <EditIcon />
+              </IconButton>
+
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>{props.title}</Modal.Title>
+                </Modal.Header>
+                <Typography variant="h5">Description</Typography>
+                <Modal.Body>{props.description}</Modal.Body>
+                <Typography variant="h5">Comment</Typography>
+                <CommentPost />
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </Grid>
           </Grid>
         </Paper>

@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Chip,
-  Grid,
-  Paper,
-  Typography,
-  IconButton,
-  ButtonGroup,
-} from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import { Icon, Header, Card } from "semantic-ui-react";
 import ItemDetail from "./ItemDetail";
 
@@ -47,6 +40,9 @@ function PostList(props) {
                 author={item.author}
                 date={item.date}
                 description={item.description}
+                id={item.id}
+                handleDelete={props.handleDelete}
+                handleEditClick={props.handleEditClick}
               />
             ))}
           </Card.Group>
@@ -66,6 +62,9 @@ function PostList(props) {
                 author={item.author}
                 date={item.date}
                 description={item.description}
+                id={item.id}
+                handleDelete={props.handleDelete}
+                handleEditClick={props.handleEditClick}
               />
             ))}
           </Card.Group>
@@ -84,6 +83,9 @@ function PostList(props) {
                 author={item.author}
                 date={item.date}
                 description={item.description}
+                id={item.id}
+                handleDelete={props.handleDelete}
+                handleEditClick={props.handleEditClick}
               />
             ))}
           </Card.Group>
