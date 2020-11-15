@@ -77,7 +77,7 @@ class Explore extends React.Component {
               </div>
             </div>
             <div className="interaction">
-              <img src={process.env.PUBLIC_URL + heart} onClick={()=> this.setState({liked:!this.state.liked})} id="heart"/>
+              <img src={heart} onClick={()=> this.setState({liked:!this.state.liked})} id="heart"/>
               <span>{likes}</span>
               <input type="text"
                      className="inputWithStyle"
@@ -132,7 +132,7 @@ class Explore extends React.Component {
               <div id="photoDetails"><img className="row" src={allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].photo}/></div>
             </div>
             <div>
-              <img src={process.env.PUBLIC_URL + likedb} id="heart"/><span>{allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].likes}</span>
+              <img src={likedb} id="heart"/><span>{allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].likes}</span>
               <br/>
               <div id="commentDetails">{(allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].comments!=null) ? allPosts[allPosts.findIndex(item => item.id == this.state.currentId)].comments.map(({user,text}) => <div><span id="bold">{user}: </span><span>{text}</span></div>) : null}</div>
             </div>
