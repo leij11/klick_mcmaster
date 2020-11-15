@@ -212,7 +212,7 @@
 }
 
 .inputWithStyle::placeholder {
-  font-size: 14px;
+  font-size: 12px;
   font-style: italic;
   padding-left: 5px;
   color: white;

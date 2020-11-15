@@ -26,8 +26,6 @@
 }
 
 .list-group-item:hover {
-  color: white;
-  text-decoration: none;
   background-color: #570000;
 }
 
@@ -45,12 +43,10 @@ small {
 
 #navText a {
   color: #800000;
-  font: Helvetica;
 }
 
-#navText a:active {
+#navText a:active, #navText a:focus {
   color: #d8630f;
-  font: Helvetica;
 }
 
 #username {
@@ -58,7 +54,7 @@ small {
 }
 
 #header {
-  z-index: 1;
+  z-index: 2;
   background-color: white;
 }
 
