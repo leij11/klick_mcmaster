@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Klick Mcmaster
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Every semester, undergraduate students find it hard to look for a tutor. Klicc provides a platform for Undergraduate students to find tutors based on their location, area of study, and personal interests. 
 
-## Available Scripts
+### Task Hierarchy
 
-In the project directory, you can run:
+- Create Profile
+- Create Self-survey
+- Match potential users
+- Chat
+- Discussion Page
+- Explore public
+- Share location
+- View Analysis
+- Set privacy
 
-### `npm start`
+### Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`git clone https://github.com/leij11/klick_mcmaster.git`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`cd klick_mcmaster`
 
-### `npm test`
+`npm install`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+open index.html file under build folder
 
-### `npm run build`
+![Explore Page](https://github.com/leij11/klick_mcmaster/blob/master/Asset/Explore.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Discussion Page](https://github.com/leij11/klick_mcmaster/blob/master/Asset/Discussion.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![People Around me Page](https://github.com/leij11/klick_mcmaster/blob/master/Asset/Location.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![A Page](https://github.com/leij11/klick_mcmaster/blob/master/Asset/Location.png)
 
-### `npm run eject`
+![Analysis Page](https://github.com/leij11/klick_mcmaster/blob/master/Asset/analysis.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Chat](https://github.com/leij11/klick_mcmaster/blob/master/Asset/chat.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Match Page](https://github.com/leij11/klick_mcmaster/blob/master/Asset/match.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Profile Page](https://github.com/leij11/klick_mcmaster/blob/master/Asset/Profile.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Setting Page](https://github.com/leij11/klick_mcmaster/blob/master/Asset/setting.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Video Demo
+[![Demo Video](https://github.com/leij11/klick_mcmaster/blob/master/Asset/logo.png)](https://www.youtube.com/watch?v=ef892tloczk)
